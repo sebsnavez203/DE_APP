@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deutsch A2 : mots, grammaire, phrases</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF0F5;--surface:#FFFFFF;--surface-2:#E2E7F0;--ink:#1E2A44;--ink-2:#5B6786;--line:#D2D9E6;--on-ink:#FFFFFF;
+  --der:#2B5BD7;--die:#D63E4A;--das:#1F8F66;
+  --der-bg:#E2EAFC;--die-bg:#FBE4E6;--das-bg:#DCF2E9;
+  --warn:#B98000;--warn-bg:#FBF0D2;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#131A2C;--surface:#1D2642;--surface-2:#28335A;--ink:#E9EDF7;--ink-2:#9AA6C6;--line:#33406B;--on-ink:#131A2C;
+    --der:#86A8FF;--die:#FF8791;--das:#5ED3A4;
+    --der-bg:#243463;--die-bg:#4B2733;--das-bg:#1D4436;
+    --warn:#F0C15A;--warn-bg:#4A3B14;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131A2C;--surface:#1D2642;--surface-2:#28335A;--ink:#E9EDF7;--ink-2:#9AA6C6;--line:#33406B;--on-ink:#131A2C;
+  --der:#86A8FF;--die:#FF8791;--das:#5ED3A4;
+  --der-bg:#243463;--die-bg:#4B2733;--das-bg:#1D4436;
+  --warn:#F0C15A;--warn-bg:#4A3B14;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Jost","Futura","Century Gothic","Avenir Next",system-ui,sans-serif;font-size:17px;line-height:1.45;-webkit-text-size-adjust:100%}
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--der);outline-offset:2px}
+.app{max-width:560px;margin:0 auto;padding:10px 16px 110px}
+.top{display:flex;align-items:center;gap:12px;padding:8px 0 14px}
+.mark{display:flex;gap:5px;align-items:flex-end}
+.mark i{display:block;width:15px;height:15px}
+.mark .s{background:var(--der)}
+.mark .c{background:var(--die);border-radius:50%}
+.mark .t{background:var(--das);clip-path:polygon(50% 0,100% 100%,0 100%)}
+h1{font-size:1.4rem;margin:0;font-weight:700;letter-spacing:.01em}
+.sub{color:var(--ink-2);font-size:.95rem;margin:0 0 14px}
+.h2{font-size:.98rem;font-weight:600;color:var(--ink-2);margin:24px 0 8px}
+.foot{color:var(--ink-2);font-size:.85rem;text-align:center;margin:18px 0 0}
+.tiny{color:var(--ink-2);font-size:.82rem}
+
+.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+.tabs .in{display:flex;max-width:560px;margin:0 auto}
+.tab{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;color:var(--ink-2);font-size:.72rem;font-weight:500;padding:6px 0}
+.tab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tab.on{color:var(--ink);font-weight:700}
+.tab.on::after{content:"";position:absolute;top:-7px;width:26px;height:3px;background:var(--ink);border-radius:2px}
+
+.seg{display:flex;background:var(--surface-2);border-radius:12px;padding:3px;gap:3px;margin-bottom:14px}
+.seg button{flex:1;border:0;background:transparent;font-size:.88rem;font-weight:600;color:var(--ink-2);padding:9px 4px;border-radius:9px}
+.seg button.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(20,30,60,.14)}
+
+.btn{appearance:none;border:0;border-radius:12px;padding:14px 18px;font-size:1rem;font-weight:600;background:var(--ink);color:var(--on-ink)}
+.btn.wide{display:block;width:100%}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.small{padding:9px 13px;font-size:.88rem;border-radius:10px}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:active:not(:disabled){transform:scale(.985)}
+.btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.btns .btn{flex:1;min-width:120px}
+
+.rows{background:var(--surface);border-radius:18px;overflow:hidden}
+.row{display:flex;align-items:stretch;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.rowmain{flex:1;text-align:left;background:none;border:0;color:inherit;padding:14px 16px;display:block;min-width:0}
+.rt{display:block;font-weight:600;font-size:1.02rem}
+.rs{display:block;color:var(--ink-2);font-size:.86rem;margin-top:2px}
+.bar{display:block;height:5px;background:var(--surface-2);border-radius:3px;margin-top:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--das)}
+.mini{background:none;border:0;border-left:1px solid var(--line);font-size:.85rem;font-weight:600;color:var(--ink-2);padding:0 16px;color:var(--ink-2)}
+
+.art{display:inline-block;font-weight:700;font-size:.95rem;padding:1px 8px;border-radius:6px;line-height:1.5}
+.art.der{color:var(--der);background:var(--der-bg)}
+.art.die{color:var(--die);background:var(--die-bg)}
+.art.das{color:var(--das);background:var(--das-bg)}
+
+.prog{height:5px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin:6px 0 12px}
+.prog i{display:block;height:100%;background:var(--ink);transition:width .3s}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.link{background:none;border:0;color:var(--ink-2);font-size:.9rem;font-weight:600;padding:6px 0}
+
+.fc{perspective:1200px;height:310px;margin:6px 0 12px;cursor:pointer}
+.fc-in{position:relative;width:100%;height:100%;transition:transform .45s ease;transform-style:preserve-3d}
+.fc.flip .fc-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--surface);border-radius:20px;padding:22px 20px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:inset 0 7px 0 var(--gc,var(--line));overflow:auto}
+.face.back{transform:rotateY(180deg)}
+.big{font-size:2.15rem;font-weight:600;line-height:1.15;word-break:break-word;margin-top:6px}
+.big.mid{font-size:1.65rem}
+.lbl{font-size:.8rem;color:var(--ink-2);margin-bottom:2px}
+.pl{margin-top:10px;font-size:.95rem;color:var(--ink-2)}
+.pl b{color:var(--ink)}
+.ex{margin-top:12px;font-size:1.02rem}
+.exfr{color:var(--ink-2);font-size:.9rem;margin-top:2px}
+.note{margin-top:12px;font-size:.84rem;background:var(--warn-bg);border-radius:9px;padding:7px 11px;text-align:left}
+.hintline{position:absolute;bottom:10px;font-size:.78rem;color:var(--ink-2)}
+.spkrow{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+.spk{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1.5px solid var(--line);color:var(--ink);border-radius:10px;padding:7px 12px;font-size:.85rem;font-weight:600}
+.spk.sm{padding:3px 7px;margin-left:8px;vertical-align:middle;border-radius:8px}
+.grades{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.g{border:0;border-radius:12px;padding:14px 4px;font-size:1rem;font-weight:700;color:var(--on-ink)}
+.g.bad{background:var(--die)}
+.g.mid{background:var(--warn)}
+.g.ok{background:var(--das)}
+
+.panel{background:var(--surface);border-radius:18px;padding:20px}
+.panel.center{text-align:center}
+.q{font-size:1.35rem;font-weight:500;line-height:1.4}
+.gap{display:inline-block;min-width:3.4ch;border-bottom:3px solid var(--ink);margin:0 3px;text-align:center;font-weight:700}
+.gap.ok{color:var(--das);border-color:var(--das)}
+.gap.bad{color:var(--die);border-color:var(--die)}
+.qfr{color:var(--ink-2);font-size:.95rem;margin-top:8px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.opts.one{grid-template-columns:1fr}
+.opts.three{grid-template-columns:repeat(3,1fr)}
+.opt{font-weight:600;font-size:1.05rem;padding:14px 10px;border-radius:12px;border:2px solid var(--line);background:var(--surface);color:var(--ink);text-align:center}
+.opts.one .opt{text-align:left;padding:13px 14px}
+.opt.der{color:var(--der);border-color:var(--der)}
+.opt.die{color:var(--die);border-color:var(--die)}
+.opt.das{color:var(--das);border-color:var(--das)}
+.opt.ok{background:var(--das-bg);border-color:var(--das);color:var(--ink)}
+.opt.bad{background:var(--die-bg);border-color:var(--die);color:var(--ink)}
+.opt.dim{opacity:.5}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:.95rem}
+.fb.ok{background:var(--das-bg)}
+.fb.bad{background:var(--die-bg)}
+.fb b{display:block;margin-bottom:3px}
+.score{font-size:3rem;font-weight:700;line-height:1.1}
+.miss{text-align:left;margin-top:14px;font-size:.95rem}
+.miss div{padding:10px 0;border-top:1px solid var(--line)}
+.miss small{display:block;color:var(--ink-2);margin-top:2px}
+
+.slots{min-height:66px;border-bottom:2px solid var(--line);padding:6px 0 10px;display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-content:flex-start}
+.slots .ph{color:var(--ink-2);font-size:.9rem;align-self:center}
+.bank{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;min-height:52px}
+.tile{font-weight:600;font-size:1rem;padding:9px 13px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink)}
+.slots.ok .tile{border-color:var(--das);background:var(--das-bg)}
+.slots.bad .tile{border-color:var(--die);background:var(--die-bg)}
+
+label.f{display:block;font-size:.88rem;font-weight:600;color:var(--ink-2);margin:0 0 10px}
+.field{display:block;width:100%;font-size:1rem;padding:12px 13px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);margin-top:5px;font-weight:400}
+textarea.field{resize:vertical;min-height:60px}
+.item{background:var(--surface);border-radius:16px;padding:16px;margin-bottom:12px}
+.item .q{font-size:1.15rem}
+.res{margin-top:10px;padding:10px 12px;border-radius:10px;font-size:.93rem}
+.res.ok{background:var(--das-bg)}
+.res.bad{background:var(--die-bg)}
+.res b{font-weight:700}
+.err{background:var(--die-bg);border-radius:10px;padding:10px 12px;font-size:.92rem;margin-top:12px}
+.off{background:var(--surface);border-radius:16px;padding:18px;color:var(--ink-2);font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.chip{background:var(--surface);border:1.5px solid var(--line);color:var(--ink);border-radius:999px;padding:7px 13px;font-size:.88rem;font-weight:500}
+
+.log{display:flex;flex-direction:column;gap:10px;margin:6px 0 14px}
+.b{max-width:90%;padding:10px 13px;border-radius:16px;font-size:.98rem;overflow-wrap:anywhere}
+.b.me{align-self:flex-end;background:var(--ink);color:var(--on-ink);border-bottom-right-radius:5px}
+.b.ai{align-self:flex-start;background:var(--surface);border-bottom-left-radius:5px}
+.b .help{display:block;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);color:var(--ink-2);font-size:.88rem}
+.b code{background:var(--surface-2);padding:0 4px;border-radius:4px}
+.composer{display:flex;gap:8px;align-items:flex-end}
+.composer .field{margin:0;flex:1}
+
+.wrow{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.wrow:last-child{border-bottom:0}
+.wrow .w{flex:1;min-width:0}
+.wrow .w b{font-weight:600}
+.wrow .w small{display:block;color:var(--ink-2);font-size:.85rem}
+.x{background:none;border:0;color:var(--ink-2);font-size:1.3rem;padding:0 6px}
+
+details{background:var(--surface);border-radius:14px;margin-bottom:8px}
+summary{list-style:none;padding:14px 16px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.3rem;color:var(--ink-2);font-weight:400}
+details[open] summary::after{content:"\2013"}
+.md{padding:0 16px 16px;font-size:.95rem}
+.md p{margin:8px 0}
+.md .scroll{overflow-x:auto;max-width:100%}
+.md table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:300px}
+.md td,.md th{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.md th{font-weight:600;color:var(--ink-2)}
+.md ul{margin:6px 0;padding-left:20px}
+.md li{margin:4px 0}
+@media (prefers-reduced-motion:reduce){.fc-in,.prog i{transition:none}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top"><div class="mark" aria-hidden="true"><i class="s"></i><i class="c"></i><i class="t"></i></div><h1>Deutsch A2</h1></header>
+  <main id="view"></main>
+</div>
+<nav class="tabs" aria-label="Sections"><div class="in" id="nav"></div></nav>
+<script>
+(function(){
+"use strict";
+/* ================= DONNÉES ================= */
+const DECKS_RAW=[
+{id:"ville",t:"Ville et transports",c:[
+["Bahnhof","der","Bahnhöfe","la gare","Wo ist der Bahnhof?","Où est la gare ?"],
+["Zug","der","Züge","le train","Der Zug hat Verspätung.","Le train a du retard."],
+["Haltestelle","die","Haltestellen","l'arrêt (de bus, de tram)","Die Haltestelle ist um die Ecke.","L'arrêt est au coin de la rue."],
+["Fahrkarte","die","Fahrkarten","le billet, le ticket","Ich brauche eine Fahrkarte nach Köln.","J'ai besoin d'un billet pour Cologne."],
+["Straße","die","Straßen","la rue","Gehen Sie die Straße entlang.","Suivez la rue."],
+["Ampel","die","Ampeln","le feu tricolore","An der Ampel müssen Sie links abbiegen.","Au feu, vous devez tourner à gauche."],
+["Kreuzung","die","Kreuzungen","le carrefour","An der Kreuzung gehen Sie rechts.","Au carrefour, allez à droite."],
+["Gleis","das","Gleise","le quai, la voie","Der Zug fährt auf Gleis fünf ab.","Le train part de la voie cinq."],
+["Flughafen","der","Flughäfen","l'aéroport","Der Flughafen ist weit weg.","L'aéroport est loin."],
+["Apotheke","die","Apotheken","la pharmacie","Gibt es hier eine Apotheke?","Y a-t-il une pharmacie ici ?"],
+["Geschäft","das","Geschäfte","le magasin","Das Geschäft öffnet um neun Uhr.","Le magasin ouvre à neuf heures."],
+["Verspätung","die","Verspätungen","le retard","Der Bus hat zehn Minuten Verspätung.","Le bus a dix minutes de retard."],
+["abbiegen","","","tourner (à gauche, à droite)","Biegen Sie an der Ecke links ab.","Tournez à gauche au coin.","Verbe séparable : ich biege … ab."],
+["umsteigen","","","changer (de train, de bus)","Wir müssen in Frankfurt umsteigen.","Nous devons changer à Francfort.","Verbe séparable : ich steige … um."],
+["geradeaus","","","tout droit","Gehen Sie immer geradeaus.","Allez toujours tout droit."]
+]},
+{id:"resto",t:"Restaurant et repas",c:[
+["Speisekarte","die","Speisekarten","la carte, le menu","Die Speisekarte, bitte.","La carte, s'il vous plaît."],
+["Rechnung","die","Rechnungen","l'addition, la facture","Die Rechnung, bitte!","L'addition, s'il vous plaît !"],
+["Trinkgeld","das","","le pourboire","Ich gebe fünf Euro Trinkgeld.","Je laisse cinq euros de pourboire."],
+["Vorspeise","die","Vorspeisen","l'entrée","Als Vorspeise nehme ich die Suppe.","En entrée, je prends la soupe."],
+["Hauptgericht","das","Hauptgerichte","le plat principal","Das Hauptgericht ist sehr lecker.","Le plat principal est très bon."],
+["Nachtisch","der","Nachtische","le dessert","Möchten Sie einen Nachtisch?","Voulez-vous un dessert ?"],
+["Tisch","der","Tische","la table","Ich möchte einen Tisch für zwei Personen reservieren.","Je voudrais réserver une table pour deux personnes."],
+["Brot","das","Brote","le pain","Ich kaufe ein Brot beim Bäcker.","J'achète un pain chez le boulanger."],
+["Milch","die","","le lait","Ich trinke Kaffee mit Milch.","Je bois du café avec du lait."],
+["Wasser","das","","l'eau","Ein Glas Wasser, bitte.","Un verre d'eau, s'il vous plaît."],
+["Hunger","der","","la faim","Ich habe Hunger.","J'ai faim.","On dit « Hunger haben » (avoir faim)."],
+["Durst","der","","la soif","Ich habe Durst.","J'ai soif."],
+["bestellen","","","commander","Ich möchte bitte bestellen.","Je voudrais commander, s'il vous plaît."],
+["schmecken","","","avoir bon goût, plaire (au goût)","Das schmeckt mir gut.","J'aime ça, c'est bon.","Se construit avec le datif : mir, dir, ihm…"],
+["lecker","","","délicieux, bon","Die Suppe ist sehr lecker.","La soupe est très bonne."],
+["vegetarisch","","","végétarien","Haben Sie etwas Vegetarisches?","Avez-vous quelque chose de végétarien ?"]
+]},
+{id:"verbes",t:"Verbes essentiels",c:[
+["machen","","","faire","Was machst du am Wochenende?","Que fais-tu le week-end ?"],
+["gehen","","","aller (à pied)","Ich gehe zur Arbeit.","Je vais au travail."],
+["kommen","","","venir","Woher kommst du?","D'où viens-tu ?"],
+["wohnen","","","habiter","Ich wohne in Berlin.","J'habite à Berlin."],
+["arbeiten","","","travailler","Sie arbeitet als Ingenieurin.","Elle travaille comme ingénieure."],
+["brauchen","","","avoir besoin de","Ich brauche Hilfe.","J'ai besoin d'aide."],
+["helfen","","","aider","Kannst du mir helfen?","Peux-tu m'aider ?","Toujours avec le datif : mir, dir, ihm."],
+["verstehen","","","comprendre","Ich verstehe das nicht.","Je ne comprends pas ça."],
+["sprechen","","","parler","Sprechen Sie Englisch?","Parlez-vous anglais ?","ich spreche, du sprichst, er spricht"],
+["fragen","","","demander, poser une question","Darf ich etwas fragen?","Puis-je poser une question ?"],
+["warten","","","attendre","Ich warte auf den Bus.","J'attends le bus.","Se construit avec « auf » + accusatif."],
+["suchen","","","chercher","Ich suche meinen Schlüssel.","Je cherche ma clé."],
+["finden","","","trouver","Ich finde das Buch interessant.","Je trouve le livre intéressant."],
+["wissen","","","savoir","Ich weiß es nicht.","Je ne sais pas.","ich weiß, du weißt, er weiß"],
+["kennen","","","connaître","Kennst du diesen Mann?","Connais-tu cet homme ?","kennen = connaître quelqu'un ; wissen = savoir un fait."],
+["bekommen","","","recevoir, obtenir","Ich bekomme morgen ein Paket.","Je reçois un colis demain.","Faux ami : ne veut pas dire « devenir » !"],
+["anrufen","","","appeler (au téléphone)","Ich rufe dich morgen an.","Je t'appelle demain.","Verbe séparable : ich rufe … an."],
+["aufstehen","","","se lever","Ich stehe um sechs Uhr auf.","Je me lève à six heures.","Verbe séparable : ich stehe … auf."],
+["einkaufen","","","faire les courses","Am Samstag kaufe ich ein.","Le samedi, je fais les courses.","Verbe séparable : ich kaufe … ein."],
+["lernen","","","apprendre, étudier","Ich lerne seit einem Jahr Deutsch.","J'apprends l'allemand depuis un an."]
+]},
+{id:"liens",t:"Petits mots utiles",c:[
+["aber","","","mais","Ich möchte kommen, aber ich habe keine Zeit.","Je voudrais venir, mais je n'ai pas le temps."],
+["weil","","","parce que","Ich bleibe zu Hause, weil ich krank bin.","Je reste à la maison parce que je suis malade.","Le verbe conjugué part à la fin de la proposition."],
+["dass","","","que","Ich denke, dass das eine gute Idee ist.","Je pense que c'est une bonne idée.","Le verbe conjugué part à la fin."],
+["auch","","","aussi","Ich komme auch.","Je viens aussi."],
+["noch","","","encore, toujours","Hast du noch Hunger?","As-tu encore faim ?"],
+["schon","","","déjà","Bist du schon fertig?","As-tu déjà fini ?"],
+["immer","","","toujours","Er ist immer pünktlich.","Il est toujours ponctuel."],
+["nie","","","jamais","Ich trinke nie Alkohol.","Je ne bois jamais d'alcool."],
+["manchmal","","","parfois","Manchmal gehe ich zu Fuß.","Parfois, je vais à pied."],
+["oft","","","souvent","Wir sehen uns oft.","Nous nous voyons souvent."],
+["vielleicht","","","peut-être","Vielleicht komme ich später.","Peut-être que je viens plus tard."],
+["leider","","","malheureusement","Leider habe ich keine Zeit.","Malheureusement, je n'ai pas le temps."],
+["eigentlich","","","en fait, à vrai dire","Eigentlich mag ich Kaffee nicht.","En fait, je n'aime pas le café."],
+["deshalb","","","c'est pourquoi","Es regnet, deshalb bleibe ich zu Hause.","Il pleut, c'est pourquoi je reste à la maison.","Après « deshalb », le verbe vient tout de suite."],
+["trotzdem","","","malgré tout, quand même","Es regnet, trotzdem gehe ich spazieren.","Il pleut, je vais quand même me promener."],
+["zusammen","","","ensemble","Wir essen zusammen.","Nous mangeons ensemble."],
+["gern","","","volontiers, avec plaisir","Ich lese gern.","J'aime lire.","« gern » après le verbe = aimer faire quelque chose."],
+["sehr","","","très","Das ist sehr gut.","C'est très bien."],
+["ziemlich","","","assez, plutôt","Heute ist es ziemlich kalt.","Aujourd'hui, il fait assez froid."],
+["wirklich","","","vraiment","Das ist wirklich schön.","C'est vraiment beau."]
+]},
+{id:"travail",t:"Travail",c:[
+["Besprechung","die","Besprechungen","la réunion","Die Besprechung beginnt um zehn Uhr.","La réunion commence à dix heures."],
+["Termin","der","Termine","le rendez-vous, l'échéance","Ich habe morgen einen Termin.","J'ai un rendez-vous demain."],
+["Aufgabe","die","Aufgaben","la tâche, l'exercice","Das ist meine Aufgabe.","C'est ma tâche."],
+["Kollege","der","Kollegen","le collègue (die Kollegin : la collègue)","Mein Kollege ist sehr nett.","Mon collègue est très gentil."],
+["Chef","der","Chefs","le chef, le patron (die Chefin)","Mein Chef ist im Urlaub.","Mon chef est en congé."],
+["Problem","das","Probleme","le problème","Wir haben ein Problem.","Nous avons un problème."],
+["Anforderung","die","Anforderungen","l'exigence, la spécification","Wir müssen die Anforderungen prüfen.","Nous devons vérifier les exigences."],
+["Schnittstelle","die","Schnittstellen","l'interface (technique)","Die Schnittstelle funktioniert nicht.","L'interface ne fonctionne pas."],
+["Frist","die","Fristen","le délai, l'échéance","Die Frist ist am Freitag.","Le délai est vendredi."],
+["Urlaub","der","","les congés, les vacances","Ich habe nächste Woche Urlaub.","J'ai congé la semaine prochaine."],
+["Erfahrung","die","Erfahrungen","l'expérience","Ich habe zwei Jahre Erfahrung.","J'ai deux ans d'expérience."],
+["verschieben","","","reporter, décaler","Können wir den Termin verschieben?","Pouvons-nous reporter le rendez-vous ?"],
+["erledigen","","","s'occuper de, régler","Ich erledige das heute.","Je m'en occupe aujourd'hui."],
+["berücksichtigen","","","prendre en compte","Wir müssen das berücksichtigen.","Nous devons prendre cela en compte."],
+["zuverlässig","","","fiable","Er ist sehr zuverlässig.","Il est très fiable."],
+["schicken","","","envoyer","Ich schicke dir eine E-Mail.","Je t'envoie un e-mail."]
+]},
+{id:"sante",t:"Santé",c:[
+["Arzt","der","Ärzte","le médecin (die Ärztin : la médecin)","Ich muss zum Arzt gehen.","Je dois aller chez le médecin."],
+["Kopf","der","Köpfe","la tête","Mein Kopf tut weh.","J'ai mal à la tête."],
+["Bauch","der","Bäuche","le ventre","Ich habe Bauchschmerzen.","J'ai mal au ventre."],
+["Rücken","der","","le dos","Mein Rücken tut weh.","J'ai mal au dos."],
+["Schmerzen","die","Schmerzen","la douleur (toujours au pluriel)","Ich habe starke Schmerzen.","J'ai de fortes douleurs."],
+["Fieber","das","","la fièvre","Ich habe Fieber.","J'ai de la fièvre."],
+["Erkältung","die","Erkältungen","le rhume","Ich habe eine Erkältung.","J'ai un rhume."],
+["Medikament","das","Medikamente","le médicament","Nehmen Sie das Medikament dreimal am Tag.","Prenez le médicament trois fois par jour."],
+["Rezept","das","Rezepte","l'ordonnance, la recette","Ich brauche ein Rezept.","J'ai besoin d'une ordonnance."],
+["krank","","","malade","Ich bin seit gestern krank.","Je suis malade depuis hier."],
+["gesund","","","en bonne santé","Bleiben Sie gesund!","Restez en bonne santé !"],
+["wehtun","","","faire mal","Mein Fuß tut weh.","Mon pied me fait mal.","Verbe séparable : es tut … weh."],
+["husten","","","tousser","Ich muss viel husten.","Je tousse beaucoup."],
+["sich fühlen","","","se sentir","Ich fühle mich nicht gut.","Je ne me sens pas bien."]
+]},
+{id:"temps",t:"Temps et météo",c:[
+["heute","","","aujourd'hui","Heute ist Montag.","Aujourd'hui, c'est lundi."],
+["morgen","","","demain","Morgen habe ich frei.","Demain, je ne travaille pas.","« morgen » = demain ; « der Morgen » = le matin."],
+["gestern","","","hier","Gestern war ich im Kino.","Hier, j'étais au cinéma."],
+["Woche","die","Wochen","la semaine","Nächste Woche fahre ich nach Berlin.","La semaine prochaine, je vais à Berlin."],
+["Wochenende","das","Wochenenden","le week-end","Am Wochenende besuche ich meine Eltern.","Le week-end, je rends visite à mes parents."],
+["Monat","der","Monate","le mois","Ich lerne seit drei Monaten Deutsch.","J'apprends l'allemand depuis trois mois."],
+["Uhr","die","Uhren","l'heure, la montre","Wie viel Uhr ist es?","Quelle heure est-il ?"],
+["Zeit","die","","le temps (durée)","Hast du morgen Zeit?","As-tu du temps demain ?"],
+["früh","","","tôt","Der Zug fährt sehr früh ab.","Le train part très tôt."],
+["spät","","","tard","Es ist schon spät.","Il est déjà tard."],
+["pünktlich","","","à l'heure, ponctuel","Bitte sei pünktlich!","Sois à l'heure, s'il te plaît !"],
+["Wetter","das","","le temps (météo)","Wie ist das Wetter heute?","Quel temps fait-il aujourd'hui ?"],
+["Regen","der","","la pluie","Bei Regen bleibe ich zu Hause.","Quand il pleut, je reste à la maison."],
+["regnen","","","pleuvoir","Es regnet seit heute Morgen.","Il pleut depuis ce matin."],
+["Sonne","die","","le soleil","Heute scheint die Sonne.","Aujourd'hui, le soleil brille."]
+]},
+{id:"maison",t:"Maison et courses",c:[
+["Wohnung","die","Wohnungen","l'appartement","Meine Wohnung hat zwei Zimmer.","Mon appartement a deux pièces."],
+["Zimmer","das","Zimmer","la pièce, la chambre","Das Zimmer ist klein.","La pièce est petite."],
+["Küche","die","Küchen","la cuisine","Ich koche in der Küche.","Je cuisine dans la cuisine."],
+["Miete","die","Mieten","le loyer","Die Miete ist zu hoch.","Le loyer est trop élevé."],
+["Schlüssel","der","Schlüssel","la clé","Ich habe meinen Schlüssel verloren.","J'ai perdu ma clé."],
+["Tasche","die","Taschen","le sac","Meine Tasche ist sehr schwer.","Mon sac est très lourd."],
+["Supermarkt","der","Supermärkte","le supermarché","Ich gehe zum Supermarkt.","Je vais au supermarché."],
+["Kasse","die","Kassen","la caisse","Bitte zahlen Sie an der Kasse.","Veuillez payer à la caisse."],
+["Angebot","das","Angebote","l'offre, la promotion","Heute gibt es ein gutes Angebot.","Aujourd'hui, il y a une bonne offre."],
+["kosten","","","coûter","Was kostet das?","Combien ça coûte ?"],
+["bezahlen","","","payer","Kann ich mit Karte bezahlen?","Puis-je payer par carte ?"],
+["billig","","","bon marché","Das Brot ist billig.","Le pain est bon marché."],
+["teuer","","","cher","Das ist mir zu teuer.","C'est trop cher pour moi."]
+]}
+];
+
+/* Exercices : [phrase, traduction, explication, bonne réponse, fausses réponses…] */
+const CATS_RAW=[
+{id:"prep",t:"Prépositions : cas fixes",s:"mit, für, bei, seit, nach, zu…",items:[
+["Ich fahre ___ dem Bus zur Arbeit.","Je vais au travail en bus.","« mit » (avec, en) est toujours suivi du datif : mit dem Bus.","mit","für","ohne","durch"],
+["Das Geschenk ist ___ dich.","Le cadeau est pour toi.","« für » (pour) est toujours suivi de l'accusatif : für dich.","für","mit","bei","von"],
+["Ich wohne ___ meinen Eltern.","J'habite chez mes parents.","« bei » = chez, toujours + datif : bei meinen Eltern.","bei","für","um","durch"],
+["Sie kommt ___ Italien.","Elle vient d'Italie.","« aus » indique l'origine (pays, ville) : aus Italien.","aus","nach","zu","seit"],
+["Ich lerne ___ einem Jahr Deutsch.","J'apprends l'allemand depuis un an.","« seit » = depuis (l'action continue encore), + datif : seit einem Jahr.","seit","für","ab","bis"],
+["Nächste Woche fahren wir ___ Berlin.","La semaine prochaine, nous allons à Berlin.","Pour aller vers une ville ou un pays sans article, on utilise « nach ».","nach","zu","in","bei"],
+["Ich gehe ___ Arzt.","Je vais chez le médecin.","« zu » (vers, chez) + datif. zu + dem = zum (der Arzt).","zum","zur","im","am"],
+["Er geht ___ Schule.","Il va à l'école.","« zu » + datif. zu + der = zur (die Schule).","zur","zum","im","am"],
+["Das Buch ist ___ meiner Schwester.","Le livre est de ma sœur.","« von » (de) + datif : von meiner Schwester. Avec « meiner » (datif), les autres choix ne marchent pas.","von","für","durch","um"],
+["Wir laufen ___ den Park.","Nous traversons le parc à pied.","« durch » (à travers) + accusatif : durch den Park.","durch","mit","aus","bei"],
+["Ich habe nichts ___ dich.","Je n'ai rien contre toi.","« gegen » (contre) + accusatif : gegen dich.","gegen","mit","bei","aus"],
+["Er trinkt den Kaffee ___ Zucker.","Il boit le café sans sucre.","« ohne » (sans) + accusatif, sans article : ohne Zucker.","ohne","mit","für","bei"]
+]},
+{id:"wechsel",t:"Où ? ou vers où ?",s:"in, auf, an, vor : datif ou accusatif",items:[
+["Ich bin ___ Küche.","Je suis dans la cuisine.","Question « Wo ? » (où ?) = position → datif. die Küche → in der Küche.","in der","in die","in den","in das"],
+["Ich gehe ___ Küche.","Je vais dans la cuisine.","Question « Wohin ? » (vers où ?) = mouvement → accusatif. die Küche → in die Küche.","in die","in der","in dem","im"],
+["Das Buch liegt ___ Tisch.","Le livre est (posé) sur la table.","Position (Wo ?) → datif. der Tisch → auf dem Tisch.","auf dem","auf den","auf der","aufs"],
+["Ich lege das Buch ___ Tisch.","Je pose le livre sur la table.","Mouvement (Wohin ?) → accusatif. der Tisch → auf den Tisch.","auf den","auf dem","auf der","auf das"],
+["Wir gehen heute Abend ___ Kino.","Ce soir, nous allons au cinéma.","Mouvement → accusatif. das Kino → in das Kino, contracté en « ins Kino ».","ins","im","in dem","in der"],
+["Der Mann sitzt ___ Stuhl.","L'homme est assis sur la chaise.","Position → datif. der Stuhl → auf dem Stuhl.","auf dem","auf den","auf der","aufs"],
+["Das Bild hängt ___ Wand.","Le tableau est accroché au mur.","Position → datif. die Wand → an der Wand.","an der","an die","an dem","an den"],
+["Ich hänge das Bild ___ Wand.","J'accroche le tableau au mur.","Mouvement → accusatif. die Wand → an die Wand.","an die","an der","an dem","am"],
+["Die Katze springt ___ Sofa.","Le chat saute sur le canapé.","Mouvement → accusatif. das Sofa → auf das Sofa, contracté en « aufs Sofa ».","aufs","auf dem","auf der","auf den"],
+["Er wartet ___ dem Haus.","Il attend devant la maison.","vor = devant ; hinter = derrière ; neben = à côté de ; unter = sous.","vor","hinter","neben","unter"]
+]},
+{id:"verbes",t:"Présent : verbes irréguliers",s:"sein, haben, fahren, sprechen…",items:[
+["Ich ___ müde.","Je suis fatigué.","sein : ich bin, du bist, er ist, wir sind, ihr seid, sie sind.","bin","bist","ist","sind"],
+["Wir ___ Hunger.","Nous avons faim.","haben : ich habe, du hast, er hat, wir haben, ihr habt, sie haben.","haben","hat","habt","hast"],
+["Du ___ sehr gut Deutsch.","Tu parles très bien allemand.","sprechen change de voyelle (e → i) à « du » et « er » : du sprichst.","sprichst","sprechst","sprecht","sprechen"],
+["Sie ___ jeden Tag nach Köln.","Elle va tous les jours à Cologne.","fahren prend un tréma (a → ä) à « du » et « er/sie/es » : sie fährt.","fährt","fahrt","fahre","fahren"],
+["Ihr ___ zu spät!","Vous arrivez trop tard !","Avec « ihr », la terminaison est -t : ihr kommt.","kommt","kommst","kommen","komme"],
+["Was ___ du am Wochenende?","Que fais-tu le week-end ?","Avec « du », la terminaison est -st : du machst.","machst","macht","mache","machen"],
+["Ich ___ nicht, wo er wohnt.","Je ne sais pas où il habite.","wissen est irrégulier : ich weiß, du weißt, er weiß.","weiß","weißt","wisse","wissen"],
+["Er ___ gern Filme.","Il aime regarder des films.","sehen : e → ie à « du » et « er » : er sieht.","sieht","sehe","sehen","siehst"],
+["Ihr ___ nach Hamburg.","Vous allez (en voiture) à Hambourg.","Le tréma n'existe qu'à « du » et « er/sie/es ». Pour « ihr » : ihr fahrt.","fahrt","fährt","fahre","fahren"],
+["Du ___ zu viel Kaffee.","Tu bois trop de café.","Verbe régulier : du + radical + -st : du trinkst.","trinkst","trinkt","trinke","trinken"],
+["Er ___ den Bus.","Il prend le bus.","nehmen : e → i et le « h » disparaît à « du » et « er » : du nimmst, er nimmt.","nimmt","nehmt","nehme","nehmen"]
+]},
+{id:"modaux",t:"Verbes modaux",s:"können, müssen, wollen, dürfen…",items:[
+["Ich ___ heute nicht kommen. Ich bin krank.","Je ne peux pas venir aujourd'hui. Je suis malade.","können = pouvoir (possibilité, capacité) : ich kann.","kann","darf","soll","will"],
+["Du ___ hier nicht rauchen.","Tu n'as pas le droit de fumer ici.","dürfen = avoir la permission : du darfst. « nicht dürfen » = c'est interdit.","darfst","kannst","willst","magst"],
+["Wir ___ um acht Uhr da sein.","Nous devons être là à huit heures.","müssen = devoir (obligation) : wir müssen.","müssen","mögen","dürfen","wollen"],
+["Ich ___ Deutsch lernen.","Je veux apprendre l'allemand.","wollen = vouloir : ich will (pas de -e à ich et er/sie/es).","will","muss","darf","soll"],
+["Sie ___ sehr gut schwimmen.","Elle sait très bien nager.","können = savoir faire, être capable de : sie kann.","kann","darf","muss","soll"],
+["Ich möchte ein Eis ___.","Je voudrais manger une glace.","Avec un modal (möchte, kann, muss…), l'infinitif part tout à la fin de la phrase.","essen","esse","isst","gegessen"],
+["Ich ___ ein Glas Wasser, bitte.","Je voudrais un verre d'eau, s'il vous plaît.","möchte = je voudrais (poli). Très utile pour commander.","möchte","mag","muss","darf"],
+["Der Arzt sagt: Du ___ mehr Wasser trinken.","Le médecin dit : tu dois boire plus d'eau.","sollen exprime une consigne ou un conseil venu de quelqu'un d'autre : du sollst.","sollst","willst","kannst","magst"]
+]},
+{id:"cas",t:"Accusatif et datif",s:"den, dem, mir, mich…",items:[
+["Ich sehe ___ Mann.","Je vois l'homme.","sehen + accusatif. Au masculin, « der » devient « den » : den Mann.","den","der","dem","des"],
+["Ich habe ___ Hund.","J'ai un chien.","haben + accusatif. Au masculin, « ein » devient « einen » : einen Hund.","einen","ein","eine","einem"],
+["Ich habe ___ Auto.","Je n'ai pas de voiture.","Au neutre, « kein » ne change pas à l'accusatif : kein Auto.","kein","keinen","keine","keinem"],
+["Sie hat ___ Bruder.","Elle n'a pas de frère.","Au masculin accusatif : keinen Bruder.","keinen","kein","keine","keinem"],
+["Ich gebe ___ Frau das Buch.","Je donne le livre à la femme.","geben + datif (à qui ?). Au féminin, « die » devient « der » : der Frau.","der","die","den","dem"],
+["Ich helfe ___ Kind.","J'aide l'enfant.","helfen est toujours suivi du datif. das Kind → dem Kind.","dem","das","den","der"],
+["Kannst du ___ helfen?","Peux-tu m'aider ?","helfen + datif : mir (et non mich).","mir","mich","ich","mein"],
+["Ich rufe ___ morgen an.","Je t'appelle demain.","anrufen + accusatif : dich.","dich","dir","du","dein"],
+["Das Buch gehört ___.","Ce livre m'appartient.","gehören + datif : mir.","mir","mich","ich","mein"],
+["Wir schenken ___ Mutter Blumen.","Nous offrons des fleurs à notre mère.","schenken + datif. Mutter est féminin : unserer Mutter.","unserer","unsere","unseren","unserem"]
+]},
+{id:"perfekt",t:"Le passé (Perfekt)",s:"haben ou sein + participe",items:[
+["Gestern ___ ich Pizza gegessen.","Hier, j'ai mangé une pizza.","Perfekt = haben ou sein + participe passé. essen → haben : ich habe gegessen.","habe","bin","hat","war"],
+["Wir ___ nach Berlin gefahren.","Nous sommes allés à Berlin.","Les verbes de déplacement (fahren, gehen, kommen) prennent « sein » : wir sind gefahren.","sind","haben","waren","hat"],
+["Ich habe gestern lange ___.","J'ai dormi longtemps hier.","Participe passé de schlafen : geschlafen.","geschlafen","geschlaft","schlafen","schläft"],
+["Er ist spät nach Hause ___.","Il est rentré tard.","Participe passé de kommen : gekommen (avec sein).","gekommen","gekommt","kommen","komme"],
+["Hast du das Buch ___?","As-tu lu le livre ?","Participe passé de lesen : gelesen.","gelesen","gelest","lesen","liest"],
+["Ich habe dich gestern ___.","Je t'ai appelé hier.","Verbe séparable : le « ge » s'intercale : an-ge-rufen.","angerufen","gerufen","angerufst","anrufen"],
+["Ich habe zwei Stunden auf dich ___.","Je t'ai attendu deux heures.","Verbe régulier : ge- + radical + -t : gewartet.","gewartet","gewarten","wartet","warten"],
+["Sie ___ gestern zu spät aufgestanden.","Elle s'est levée trop tard hier.","aufstehen (changement de position) prend « sein » : sie ist aufgestanden.","ist","hat","sind","haben"]
+]},
+{id:"ordre",t:"Ordre des mots",s:"verbe en 2e place, weil, dass",items:[
+["Choisis la phrase correcte.","Demain, je vais à Berlin.","Le verbe conjugué est toujours en 2e position. Si la phrase commence par « Morgen », le verbe suit, puis le sujet.","Morgen fahre ich nach Berlin.","Morgen ich fahre nach Berlin.","Ich morgen fahre nach Berlin.","Morgen nach Berlin fahre ich."],
+["Choisis la phrase correcte.","Je reste à la maison parce que je suis malade.","Après « weil », le verbe conjugué part à la fin de la proposition.","Ich bleibe zu Hause, weil ich krank bin.","Ich bleibe zu Hause, weil ich bin krank.","Ich bleibe zu Hause, weil bin ich krank.","Ich bleibe zu Hause, weil krank ich bin."],
+["Choisis la phrase correcte.","Je pense que tu as raison.","Après « dass », le verbe conjugué part à la fin.","Ich denke, dass du recht hast.","Ich denke, dass du hast recht.","Ich denke, dass hast du recht.","Ich denke, du recht dass hast."],
+["Choisis la phrase correcte.","Nous ne pouvons pas venir.","Modal en 2e position, infinitif à la fin, « nicht » juste avant l'infinitif.","Wir können nicht kommen.","Wir können kommen nicht.","Wir nicht können kommen.","Wir kommen nicht können."],
+["Choisis la phrase correcte.","Je t'appelle demain.","Verbe séparable : la conjugaison reste en 2e position, le préfixe « an » part à la fin.","Ich rufe dich morgen an.","Ich anrufe dich morgen.","Ich rufe an dich morgen.","Ich dich morgen anrufe."],
+["Choisis la phrase correcte.","Où habites-tu ?","Question avec mot interrogatif : mot interrogatif + verbe + sujet.","Wo wohnst du?","Wo du wohnst?","Wohnst wo du?","Du wo wohnst?"],
+["Choisis la phrase correcte.","Il pleut, c'est pourquoi je reste à la maison.","« deshalb » occupe la place 1 : le verbe conjugué vient juste après.","Es regnet, deshalb bleibe ich zu Hause.","Es regnet, deshalb ich bleibe zu Hause.","Es regnet, deshalb ich zu Hause bleibe.","Es regnet, ich deshalb bleibe zu Hause."],
+["Choisis la phrase correcte.","Parles-tu allemand ?","Question oui/non : le verbe conjugué passe en 1re position.","Sprichst du Deutsch?","Du Deutsch sprichst?","Sprichst Deutsch du?","Sprechen du Deutsch?"]
+]},
+{id:"neg",t:"Nicht ou kein ?",s:"la négation",items:[
+["Ich habe ___ Zeit.","Je n'ai pas le temps.","Pour nier un nom (avec « ein » ou sans article), on utilise « kein ». Zeit est féminin : keine Zeit.","keine","nicht","kein","keinen"],
+["Ich komme ___.","Je ne viens pas.","Pour nier un verbe, on utilise « nicht », en fin de phrase.","nicht","kein","keine","keinen"],
+["Das ist ___ Problem.","Ce n'est pas un problème.","On nie « ein Problem » avec « kein ». Problem est neutre : kein Problem.","kein","nicht","keine","keinen"],
+["Er ist ___ müde.","Il n'est pas fatigué.","Pour nier un adjectif, on utilise « nicht », placé devant l'adjectif.","nicht","kein","keine","keinen"],
+["Ich trinke ___ Kaffee.","Je ne bois pas de café.","Kaffee est masculin, à l'accusatif : keinen Kaffee.","keinen","kein","keine","nicht"],
+["Wir haben ___ Hunger.","Nous n'avons pas faim.","Hunger est masculin, à l'accusatif : keinen Hunger.","keinen","kein","keine","nicht"],
+["Ich verstehe das ___.","Je ne comprends pas ça.","Le complément est défini (« das ») : on utilise « nicht », en fin de phrase.","nicht","kein","keine","keinen"],
+["Sie hat ___ Kinder.","Elle n'a pas d'enfants.","Au pluriel, « kein » devient « keine » : keine Kinder.","keine","kein","keinen","nicht"]
+]}
+];
+
+/* Phrases à construire : [français, allemand, variantes acceptées, mots en trop] */
+const TR_RAW=[
+["Je m'appelle Paul et j'habite à Berlin.","Ich heiße Paul und wohne in Berlin."],
+["Où est la gare ?","Wo ist der Bahnhof?"],
+["Je voudrais un café, s'il vous plaît.","Ich möchte einen Kaffee, bitte.",[],["einen","ein"]],
+["Combien ça coûte ?","Wie viel kostet das?"],
+["Je ne comprends pas ça.","Ich verstehe das nicht."],
+["Peux-tu parler plus lentement, s'il te plaît ?","Kannst du bitte langsamer sprechen?",["Kannst du langsamer sprechen, bitte?"]],
+["Demain, je travaille de neuf heures à dix-sept heures.","Morgen arbeite ich von neun bis siebzehn Uhr."],
+["Ce soir, nous allons au cinéma.","Heute Abend gehen wir ins Kino.",["Wir gehen heute Abend ins Kino."],["im"]],
+["Je n'ai pas le temps.","Ich habe keine Zeit.",[],["nicht"]],
+["Il vient de Paris.","Er kommt aus Paris.",[],["nach"]],
+["Je suis allé au travail en bus.","Ich bin mit dem Bus zur Arbeit gefahren.",[],["den","zum"]],
+["Elle a acheté un pain.","Sie hat ein Brot gekauft."],
+["Je reste à la maison parce que je suis malade.","Ich bleibe zu Hause, weil ich krank bin."],
+["Peux-tu m'aider, s'il te plaît ?","Kannst du mir bitte helfen?",["Kannst du mir helfen, bitte?"],["mich"]],
+["Je dois aller chez le médecin.","Ich muss zum Arzt gehen.",[],["zur"]],
+["Il pleut, donc je prends un parapluie.","Es regnet, deshalb nehme ich einen Regenschirm."],
+["Nous avons rendez-vous à trois heures.","Wir haben um drei Uhr einen Termin."],
+["J'apprends l'allemand depuis six mois.","Ich lerne seit sechs Monaten Deutsch.",[],["für"]],
+["Le livre est sur la table.","Das Buch liegt auf dem Tisch.",[],["den"]],
+["Je pose le livre sur la table.","Ich lege das Buch auf den Tisch.",[],["dem"]],
+["As-tu faim ?","Hast du Hunger?"],
+["Je t'appelle demain.","Ich rufe dich morgen an."],
+["Nous voulons réserver une table pour deux personnes.","Wir möchten einen Tisch für zwei Personen reservieren."],
+["Je pense que c'est une bonne idée.","Ich denke, dass das eine gute Idee ist."],
+["Il n'a pas de voiture.","Er hat kein Auto.",[],["keine"]],
+["Le train a dix minutes de retard.","Der Zug hat zehn Minuten Verspätung."],
+["Malheureusement, je ne peux pas venir.","Leider kann ich nicht kommen."],
+["Que fais-tu le week-end ?","Was machst du am Wochenende?",[],["im"]],
+["Je me lève à sept heures.","Ich stehe um sieben Uhr auf."],
+["Hier, nous avons mangé au restaurant.","Wir haben gestern im Restaurant gegessen.",["Gestern haben wir im Restaurant gegessen."],["sind"]]
+];
+/* ================= OUTILS ================= */
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const store={
+  get(k,d){try{const v=localStorage.getItem("de-a2:"+k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem("de-a2:"+k,JSON.stringify(v))}catch(e){}}
+};
+const md=s=>esc(s).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/`([^`]+)`/g,"<code>$1</code>").replace(/\n/g,"<br>");
+const CAN_SPEAK=(typeof window!=="undefined")&&("speechSynthesis" in window)&&("SpeechSynthesisUtterance" in window);
+function speak(t){try{const u=new SpeechSynthesisUtterance(t);u.lang="de-DE";u.rate=.85;window.speechSynthesis.cancel();window.speechSynthesis.speak(u)}catch(e){}}
+const ICON_SPK='<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 010 7"/></svg>';
+const spkBtn=(t,label,cls)=>CAN_SPEAK?`<button class="spk ${cls||""}" data-a="say" data-t="${esc(t)}" aria-label="Écouter${label?" : "+esc(label):""}">${ICON_SPK}${label?`<span>${esc(label)}</span>`:""}</button>`:"";
+const artChip=a=>a?`<span class="art ${a}">${a}</span>`:"";
+
+/* ================= ÉTAT ================= */
+const DECKS=DECKS_RAW.map(d=>({id:d.id,t:d.t,cards:d.c.map((r,i)=>({id:d.id+i,deck:d.id,de:r[0],art:r[1],pl:r[2],fr:r[3],ex:r[4],exfr:r[5],note:r[6]||""}))}));
+const CATS=CATS_RAW.map(c=>({id:c.id,t:c.t,s:c.s,items:c.items.map((r,i)=>({id:c.id+i,kind:r[0].indexOf("___")>-1?"gap":"order",q:r[0],fr:r[1],why:r[2],ans:r[3],all:r.slice(3)}))}));
+const TRS=TR_RAW.map((r,i)=>({id:"t"+i,fr:r[0],de:r[1],alts:r[2]||[],extra:r[3]||[]}));
+
+const PR=store.get("prog",{});      // progression des cartes
+const GR=store.get("gram",{});      // résultats des exercices
+const TS=store.get("trans",{});     // phrases réussies
+let CUSTOM=store.get("custom",[]);  // mots ajoutés
+let DIR=store.get("dir","de");
+const UI={tab:store.get("tab","mots"),fc:null,list:null,g:null,t:null,
+  ai:{sub:"phr",theme:"La vie de tous les jours",focus:"Tout mélangé",phr:{items:[],busy:false,err:""},
+      chat:{mode:"dial",sc:"resto",log:[],busy:false,stream:"",err:"",ctl:null,started:false},
+      m:{theme:"",busy:false,items:[],err:"",msg:"",added:{}}}};
+if(!["mots","gram","trad","ia","memo"].includes(UI.tab))UI.tab="mots";
+
+function allDecks(){const d=DECKS.slice();if(CUSTOM.length)d.push({id:"mes",t:"Mes mots",cards:CUSTOM});return d}
+function allCards(){return allDecks().flatMap(d=>d.cards)}
+
+/* ================= CLAUDE (sample) ================= */
+let SAMPLE;
+try{
+  if(window.claude&&window.claude.use){window.claude.use("sample").then(s=>{SAMPLE=s||null;if(UI.tab==="ia")render()}).catch(()=>{SAMPLE=null;if(UI.tab==="ia")render()})}
+  else SAMPLE=null;
+}catch(e){SAMPLE=null}
+function errCopy(c){
+  return({not_granted:"Accès à Claude refusé. Recharge la page et accepte l'autorisation pour utiliser cette section.",
+    rate_limited:"Trop de demandes, ou limite d'usage atteinte. Attends un peu puis réessaie.",
+    session_expired:"Session expirée. Reconnecte-toi puis recharge la page.",
+    refused:"Claude n'a pas pu traiter cette demande. Reformule-la.",
+    invalid_json:"Réponse illisible. Réessaie.",
+    empty_completion:"Pas de réponse. Réessaie avec une demande plus simple.",
+    sampling_disabled:"Claude n'est pas disponible pour ce compte."}[c])||"Petit souci de connexion. Réessaie.";
+}
+function aiOff(){
+  if(SAMPLE===undefined)return `<div class="off">Connexion à Claude…</div>`;
+  return `<div class="off">Cette section utilise Claude pour inventer des phrases, jouer des dialogues et répondre à tes questions. Elle s'active quand la page est ouverte dans Claude (site ou appli), avec ton autorisation. Le reste de l'appli marche sans.</div>`;
+}
+
+/* ================= NAVIGATION ================= */
+const NAV=[
+ ["mots","Mots",'<svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2.5"/><path d="M8 4h8"/></svg>'],
+ ["gram","Grammaire",'<svg viewBox="0 0 24 24"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 0l0 0a2 2 0 010 3L8 19z"/><path d="M14 7l3 3"/></svg>'],
+ ["trad","Traduire",'<svg viewBox="0 0 24 24"><path d="M4 8h14l-3-3"/><path d="M20 16H6l3 3"/></svg>'],
+ ["ia","Atelier IA",'<svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16v4M17 18h4"/></svg>'],
+ ["memo","Mémo",'<svg viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h11v15H7a2 2 0 00-2 2z"/><path d="M5 20a2 2 0 002 1h11"/></svg>']
+];
+function renderNav(){$("#nav").innerHTML=NAV.map(n=>`<button class="tab${UI.tab===n[0]?" on":""}" data-a="tab" data-t="${n[0]}"${UI.tab===n[0]?' aria-current="page"':""}>${n[2]}<span>${n[1]}</span></button>`).join("")}
+const V={};
+function render(){$("#view").innerHTML=V[UI.tab]();renderNav()}
+const toTop=()=>window.scrollTo(0,0);
+
+/* ================= MOTS (cartes) ================= */
+V.mots=function(){
+  if(UI.fc)return fcView();
+  if(UI.list)return listView(UI.list);
+  const now=Date.now(),decks=allDecks(),all=allCards();
+  const due=all.filter(c=>PR[c.id]&&PR[c.id].due<=now).length;
+  const fresh=all.filter(c=>!PR[c.id]).length;
+  const mast=all.filter(c=>PR[c.id]&&PR[c.id].box>=3).length;
+  const rows=decks.map(d=>{
+    const n=d.cards.length,dd=d.cards.filter(c=>PR[c.id]&&PR[c.id].due<=now).length,fr=d.cards.filter(c=>!PR[c.id]).length,m=d.cards.filter(c=>PR[c.id]&&PR[c.id].box>=3).length;
+    const parts=[n+" mots"];if(dd)parts.push(dd+" à revoir");if(fr)parts.push(fr+" nouveaux");
+    return `<div class="row"><button class="rowmain" data-a="study" data-id="${d.id}"><span class="rt">${esc(d.t)}</span><span class="rs">${parts.join(" · ")}</span><span class="bar"><i style="width:${Math.round(100*m/n)}%"></i></span></button><button class="mini" data-a="list" data-id="${d.id}">Liste</button></div>`;
+  }).join("");
+  return `<p class="sub">Retourne la carte, dis si tu la savais. Les mots ratés reviennent vite, les autres de plus en plus tard.</p>
+  <div class="seg" role="group" aria-label="Sens des cartes"><button class="${DIR==="de"?"on":""}" data-a="dir" data-d="de">Allemand → français</button><button class="${DIR==="fr"?"on":""}" data-a="dir" data-d="fr">Français → allemand</button></div>
+  <button class="btn wide" data-a="study" data-id="all">Réviser maintenant${due||fresh?` (${due} à revoir, ${Math.min(fresh,8)} nouveaux)`:""}</button>
+  <h2 class="h2">Paquets</h2><div class="rows">${rows}</div>
+  <p class="foot">${mast} mot${mast>1?"s":""} maîtrisé${mast>1?"s":""} sur ${all.length}</p>`;
+};
+function startFc(id){
+  const now=Date.now(),cards=id==="all"?allCards():(allDecks().find(d=>d.id===id)||{cards:[]}).cards;
+  const due=shuffle(cards.filter(c=>PR[c.id]&&PR[c.id].due<=now));
+  const fresh=shuffle(cards.filter(c=>!PR[c.id])).slice(0,8);
+  let q=due.concat(fresh).slice(0,20),practice=false;
+  if(!q.length){q=shuffle(cards).slice(0,12);practice=true}
+  UI.fc={id,q,i:0,flip:false,rev:false,known:0,retry:{},practice};
+  render();toTop();
+}
+function fcCtl(){
+  const s=UI.fc;
+  if(!s.rev)return `<button class="btn wide" data-a="flip">Retourner</button>`;
+  return `<div class="grades"><button class="g bad" data-a="grade" data-g="0">À revoir</button><button class="g mid" data-a="grade" data-g="1">Presque</button><button class="g ok" data-a="grade" data-g="2">Je sais</button></div>`;
+}
+function fcView(){
+  const s=UI.fc;
+  if(s.i>=s.q.length)return fcEnd();
+  const c=s.q[s.i],gc=c.art?`var(--${c.art})`:"var(--line)";
+  const detail=(c.pl?`<div class="pl">Pluriel : <b>die ${esc(c.pl)}</b></div>`:"")+`<div class="ex">${esc(c.ex)}</div><div class="exfr">${esc(c.exfr)}</div>`+(c.note?`<div class="note">${esc(c.note)}</div>`:"");
+  const deFace=`<div>${artChip(c.art)}</div><div class="big">${esc(c.de)}</div>`;
+  const frFace=`<div class="lbl">Français</div><div class="big mid">${esc(c.fr)}</div>`;
+  const front=DIR==="de"?deFace:frFace, back=DIR==="de"?frFace+detail:deFace+detail;
+  const say=c.art?c.art+" "+c.de:c.de;
+  return `<div class="topline"><span class="tiny">${s.practice?"Entraînement · ":""}Carte ${Math.min(s.i+1,s.q.length)} sur ${s.q.length}</span><button class="link" data-a="fcquit">Quitter</button></div>
+  <div class="prog"><i style="width:${Math.round(100*s.i/s.q.length)}%"></i></div>
+  <div class="fc${s.flip?" flip":""}" style="--gc:${gc}" data-a="flip" role="button" tabindex="0" aria-label="Carte : touche pour retourner"><div class="fc-in"><div class="face">${front}<span class="hintline">Touche pour retourner</span></div><div class="face back">${back}</div></div></div>
+  <div class="spkrow">${spkBtn(say,"Le mot")}${spkBtn(c.ex,"La phrase")}</div>
+  <div id="fcctl">${fcCtl()}</div>`;
+}
+function fcEnd(){
+  const s=UI.fc;
+  return `<div class="panel center"><div class="score">${s.q.length>0?s.known:0}</div><p>${s.known>1?"cartes sues du premier coup":"carte sue du premier coup"} sur ${new Set(s.q.map(c=>c.id)).size}.</p><p class="tiny">Les cartes ratées reviendront bientôt. Reviens demain pour les autres.</p>
+  <div class="btns"><button class="btn" data-a="study" data-id="${s.id}">Encore une session</button><button class="btn ghost" data-a="fcquit">Retour aux paquets</button></div></div>`;
+}
+function listView(id){
+  const d=allDecks().find(x=>x.id===id);
+  if(!d){UI.list=null;return V.mots()}
+  const rows=d.cards.map(c=>`<div class="wrow"><div class="w">${artChip(c.art)} <b>${esc(c.de)}</b>${c.pl?` <span class="tiny">(die ${esc(c.pl)})</span>`:""}<small>${esc(c.fr)}</small></div>${id==="mes"?`<button class="x" data-a="delc" data-id="${c.id}" aria-label="Supprimer">×</button>`:""}${spkBtn(c.art?c.art+" "+c.de:c.de,"","sm")}</div>`).join("");
+  return `<div class="topline"><h2 class="h2" style="margin:8px 0">${esc(d.t)}</h2><button class="link" data-a="listback">Retour</button></div><div class="rows">${rows}</div>`;
+}
+
+/* ================= GRAMMAIRE ================= */
+V.gram=function(){
+  if(UI.g)return gView();
+  const nouns=allCards().filter(c=>c.art).length;
+  const rows=[`<div class="row"><button class="rowmain" data-a="gstart" data-id="art"><span class="rt">Der, die ou das ?</span><span class="rs">Devine le genre des mots du vocabulaire (${nouns} noms)</span></button></div>`]
+    .concat(CATS.map(c=>{const d=c.items.filter(x=>GR[x.id]===1).length;return `<div class="row"><button class="rowmain" data-a="gstart" data-id="${c.id}"><span class="rt">${esc(c.t)}</span><span class="rs">${esc(c.s)} · ${d}/${c.items.length} réussis</span><span class="bar"><i style="width:${Math.round(100*d/c.items.length)}%"></i></span></button></div>`}));
+  return `<p class="sub">Séries de 10 questions. Les questions que tu n'as pas encore réussies passent en premier, avec l'explication à chaque fois.</p>
+  <button class="btn wide" data-a="gstart" data-id="mix">Mélange de tout</button>
+  <h2 class="h2">Thèmes</h2><div class="rows">${rows.join("")}</div>`;
+};
+function gStart(id){
+  let items;
+  if(id==="art"){
+    items=shuffle(allCards().filter(c=>c.art)).slice(0,10).map(c=>({id:"art:"+c.id,kind:"art",c,ans:c.art,opts:["der","die","das"]}));
+  }else{
+    const pool=id==="mix"?CATS.flatMap(c=>c.items):CATS.find(c=>c.id===id).items;
+    items=pool.map(x=>({x,k:(GR[x.id]===1?1:0)+Math.random()*.9})).sort((a,b)=>a.k-b.k).slice(0,10).map(o=>Object.assign({},o.x,{opts:shuffle(o.x.all)}));
+  }
+  UI.g={id,items,i:0,pick:null,score:0,miss:[]};
+  render();toTop();
+}
+function gapHTML(q,fill,cls){return esc(q).replace("___",`<span class="gap ${cls||""}">${fill?esc(fill):"&nbsp;&nbsp;&nbsp;"}</span>`)}
+function gView(){
+  const s=UI.g;
+  if(s.i>=s.items.length)return gEnd();
+  const it=s.items[s.i],done=s.pick!==null,okAns=done&&it.opts[s.pick]===it.ans;
+  let head,fb="";
+  if(it.kind==="art"){
+    head=`<div class="lbl">Quel article ?</div><div class="big" style="text-align:center;margin:14px 0 4px">${done?artChip(it.ans)+" ":""}${esc(it.c.de)}</div><div class="qfr" style="text-align:center">${esc(it.c.fr)}</div>`;
+    if(done)fb=`<div class="fb ${okAns?"ok":"bad"}"><b>${okAns?"Bien joué":"C'est « "+esc(it.ans)+" »"}</b>${esc(it.ans)} ${esc(it.c.de)}${it.c.pl?" · pluriel : die "+esc(it.c.pl):""}<br><span class="tiny">${esc(it.c.ex)}</span></div>`;
+  }else if(it.kind==="gap"){
+    head=`<div class="q">${gapHTML(it.q,done?it.opts[s.pick]:"",done?(okAns?"ok":"bad"):"")}</div><div class="qfr">${esc(it.fr)}</div>`;
+    if(done)fb=`<div class="fb ${okAns?"ok":"bad"}"><b>${okAns?"Bien joué":"La bonne réponse : "+esc(it.ans)}</b>${esc(it.why)}</div>`;
+  }else{
+    head=`<div class="lbl">${esc(it.q)}</div><div class="q">« ${esc(it.fr)} »</div>`;
+    if(done)fb=`<div class="fb ${okAns?"ok":"bad"}"><b>${okAns?"Bien joué":"La bonne phrase : "+esc(it.ans)}</b>${esc(it.why)}</div>`;
+  }
+  const cls=it.kind==="order"?"one":(it.kind==="art"?"three":"");
+  const opts=it.opts.map((o,k)=>{
+    let c="";
+    if(done){c=o===it.ans?"ok":(k===s.pick?"bad":"dim")}else if(it.kind==="art")c=o;
+    return `<button class="opt ${c}" data-a="gpick" data-i="${k}"${done?" disabled":""}>${esc(o)}</button>`;
+  }).join("");
+  return `<div class="topline"><span class="tiny">Question ${s.i+1} sur ${s.items.length}</span><button class="link" data-a="gquit">Quitter</button></div>
+  <div class="prog"><i style="width:${Math.round(100*s.i/s.items.length)}%"></i></div>
+  <div class="panel">${head}<div class="opts ${cls}">${opts}</div><div aria-live="polite">${fb}</div>
+  ${done?`<div class="btns"><button class="btn" data-a="gnext">${s.i+1===s.items.length?"Voir le résultat":"Suivant"}</button></div>`:""}</div>`;
+}
+function gEnd(){
+  const s=UI.g,n=s.items.length;
+  const miss=s.miss.map(it=>it.kind==="art"?`<div><b>${esc(it.ans)} ${esc(it.c.de)}</b><small>${esc(it.c.fr)}</small></div>`:`<div>${it.kind==="gap"?gapHTML(it.q,it.ans,"ok"):"<b>"+esc(it.ans)+"</b>"}<small>${esc(it.why)}</small></div>`).join("");
+  return `<div class="panel center"><div class="score">${s.score}/${n}</div><p>${s.score===n?"Sans faute.":s.score>=n*.7?"Solide. Reviens sur les erreurs ci-dessous.":"Continue, c'est en refaisant les séries que ça rentre."}</p>
+  ${miss?`<div class="miss"><b>À retenir</b>${miss}</div>`:""}
+  <div class="btns"><button class="btn" data-a="gstart" data-id="${s.id}">Rejouer</button><button class="btn ghost" data-a="gquit">Retour</button></div></div>`;
+}
+
+/* ================= TRADUIRE (phrases à construire) ================= */
+function newT(){
+  const pool=TRS.filter(x=>!TS[x.id]),list=pool.length?pool:TRS;
+  let it=list[Math.floor(Math.random()*list.length)];
+  if(UI.t&&list.length>1)while(it.id===UI.t.it.id)it=list[Math.floor(Math.random()*list.length)];
+  const toks=it.de.split(" ").concat(it.extra).map((t,i)=>({id:i,t}));
+  UI.t={it,bank:shuffle(toks),ans:[],st:"",sol:false};
+}
+V.trad=function(){
+  if(!UI.t)newT();
+  const t=UI.t,done=Object.keys(TS).length;
+  const slots=t.ans.length?t.ans.map(a=>`<button class="tile" data-a="tback" data-id="${a.id}">${esc(a.t)}</button>`).join(""):`<span class="ph">Touche les mots dans l'ordre</span>`;
+  const bank=t.bank.map(a=>`<button class="tile" data-a="tpick" data-id="${a.id}">${esc(a.t)}</button>`).join("");
+  let fb="";
+  if(t.st==="ok")fb=`<div class="fb ok" aria-live="polite"><b>Richtig !</b>${esc(t.it.de)} ${spkBtn(t.it.de,"","sm")}</div>`;
+  else if(t.st==="bad")fb=`<div class="fb bad" aria-live="polite"><b>Pas tout à fait</b>Vérifie l'ordre des mots et les articles. Touche un mot pour le retirer.</div>`;
+  if(t.sol&&t.st!=="ok")fb+=`<div class="fb ok"><b>Solution</b>${esc(t.it.de)}</div>`;
+  const btns=t.st==="ok"
+    ?`<div class="btns"><button class="btn" data-a="tnext">Phrase suivante</button></div>`
+    :`<div class="btns"><button class="btn" data-a="tcheck"${t.ans.length?"":" disabled"}>Vérifier</button><button class="btn ghost" data-a="tclear"${t.ans.length?"":" disabled"}>Effacer</button><button class="btn ghost" data-a="tsol">Solution</button></div>`;
+  return `<p class="sub">Construis la phrase allemande. Il y a parfois un mot en trop pour te piéger.</p>
+  <div class="prog"><i style="width:${Math.round(100*done/TRS.length)}%"></i></div><div class="tiny">${done} phrase${done>1?"s":""} réussie${done>1?"s":""} sur ${TRS.length}</div>
+  <div class="panel" style="margin-top:10px"><div class="lbl">Traduis</div><div class="q">« ${esc(t.it.fr)} »</div>
+  <div class="slots ${t.st}">${slots}</div><div class="bank">${bank}</div>${fb}${btns}</div>`;
+};
+
+/* ================= ATELIER IA ================= */
+const THEMES=["La vie de tous les jours","Au restaurant","En ville et transports","Au travail","Santé et médecin","Courses et argent","Voyage et hôtel","Famille et amis","Loisirs et week-end"];
+const FOCUS=["Tout mélangé","Prépositions","Accusatif et datif","Verbes modaux","Perfekt (passé)","weil / dass / deshalb","Verbes séparables","Négation (nicht / kein)"];
+const SC={resto:["Au restaurant","un serveur dans un restaurant à Berlin"],shop:["Faire les courses","une vendeuse dans un supermarché"],doc:["Chez le médecin","une médecin généraliste"],way:["Demander son chemin","un passant dans la rue, qui aide l'élève à trouver la gare"],job:["Au travail","un collègue de bureau qui discute avec l'élève"],hotel:["À l'hôtel","un réceptionniste d'hôtel"],free:["Faire connaissance","un ami allemand qui rencontre l'élève pour la première fois"]};
+const QS=["Quelle est la différence entre « kennen » et « wissen » ?","Comment savoir quand utiliser « dem » ou « den » ?","Explique-moi les verbes séparables simplement.","Pourquoi on dit « ich habe Hunger » et pas « ich bin Hunger » ?","Comment retenir les articles der, die, das ?"];
+const PROF_RULES="Tu es un professeur d'allemand bienveillant et clair, pour un francophone de niveau A2 (débutant avancé). Réponds en français, de façon courte (150 mots maximum), avec 2 ou 3 exemples en allemand traduits en français. Évite le jargon. Mets en **gras** les mots clés. Si la question est floue, pose une seule question de clarification.";
+function dialRules(sc){return `Tu es un partenaire de conversation pour un francophone qui apprend l'allemand (niveau A2).
+Situation : tu joues ${SC[sc][1]}.
+Règles :
+- Ta réplique en allemand : 1 à 3 phrases courtes, vocabulaire simple (A2), puis une question pour relancer.
+- Ensuite, aide en français : corrige avec bienveillance les erreurs de la dernière réponse de l'élève (cas, ordre des mots, conjugaison, article) en donnant la phrase corrigée. S'il n'y a aucune erreur, dis-le en quelques mots. Si l'élève écrit en français ou demande de l'aide, aide-le en français et propose-lui une phrase allemande à essayer.
+Format EXACT, sans rien d'autre :
+DE: <ta réplique en allemand>
+FR: <aide ou correction en français, 1 à 3 phrases courtes>
+Commence maintenant : salue l'élève et lance la situation (dans FR, donne-lui une consigne courte pour répondre).`}
+function parseDF(t){const m=t.match(/^\s*DE:\s*([\s\S]*?)\s*(?:\n\s*FR:\s*([\s\S]*))?$/i);return m?{de:m[1].trim(),fr:(m[2]||"").trim()}:{de:t.trim(),fr:""}}
+
+V.ia=function(){
+  const a=UI.ai;
+  const seg=`<div class="seg" role="tablist">${[["phr","Phrases"],["dial","Dialogue"],["prof","Prof"],["mots","Mots"]].map(x=>`<button class="${a.sub===x[0]?"on":""}" data-a="aisub" data-s="${x[0]}" role="tab">${x[1]}</button>`).join("")}</div>`;
+  let body;
+  if(a.sub==="mots")body=aiMots();
+  else if(!SAMPLE)body=aiOff();
+  else if(a.sub==="phr")body=aiPhr();
+  else body=aiChat();
+  return seg+body;
+};
+/* --- Phrases à traduire --- */
+function aiPhr(){
+  const a=UI.ai,p=a.phr;
+  const opt=(arr,v)=>arr.map(x=>`<option${x===v?" selected":""}>${esc(x)}</option>`).join("");
+  const items=p.items.map((it,i)=>{
+    let res="";
+    if(it.busy)res=`<div class="res">Claude corrige…</div>`;
+    else if(it.res)res=`<div class="res ${it.res.ok?"ok":"bad"}" aria-live="polite"><b>${it.res.ok?"Correct":"À corriger"}</b>${it.res.ok?"":" : "+esc(it.res.correction)}<br>${esc(it.res.explication)}</div>`;
+    else if(it.shown)res=`<div class="res ok"><b>Réponse possible :</b> ${esc(it.de)}</div>`;
+    return `<div class="item"><div class="q">« ${esc(it.fr)} »</div>${it.astuce?`<div class="qfr">Indice : ${esc(it.astuce)}</div>`:""}
+    <textarea class="field" rows="2" data-bind="ph:${i}" placeholder="Ta traduction en allemand" autocapitalize="sentences" autocomplete="off" spellcheck="false">${esc(it.ans||"")}</textarea>
+    <div class="btns"><button class="btn small" data-a="phcheck" data-i="${i}"${it.busy?" disabled":""}>Vérifier</button><button class="btn small ghost" data-a="phshow" data-i="${i}">Voir une réponse</button></div>${res}</div>`;
+  }).join("");
+  return `<p class="sub">Claude invente des phrases à ton niveau. Tu traduis, il corrige et t'explique l'erreur.</p>
+  <label class="f">Thème<select class="field" data-bind="phtheme">${opt(THEMES,a.theme)}</select></label>
+  <label class="f">Point de grammaire<select class="field" data-bind="phfocus">${opt(FOCUS,a.focus)}</select></label>
+  <button class="btn wide" data-a="phgen"${p.busy?" disabled":""}>${p.busy?"Claude écrit les phrases…":(p.items.length?"Nouvelles phrases":"Générer 5 phrases")}</button>
+  ${p.err?`<div class="err">${esc(p.err)}</div>`:""}<div style="margin-top:16px">${items}</div>`;
+}
+const normS=s=>String(s).toLowerCase().replace(/[.,!?;:«»"'’]/g,"").replace(/\s+/g," ").trim();
+async function phGen(){
+  const a=UI.ai,p=a.phr;p.busy=true;p.err="";render();
+  const prompt=`Tu es professeur d'allemand pour un francophone de niveau A2. Invente 5 phrases françaises courtes (8 mots maximum chacune, vocabulaire courant) à traduire en allemand.
+Thème : ${a.theme}. Point de grammaire visé : ${a.focus}.
+Varie les sujets et les phrases (graine : ${Math.random().toString(36).slice(2,7)}).
+Réponds UNIQUEMENT par un tableau JSON, sans texte autour, de la forme :
+[{"fr":"Je vais au cinéma avec mon ami.","de":"Ich gehe mit meinem Freund ins Kino.","astuce":"mit + datif"}]
+"de" = une traduction allemande correcte et naturelle. "astuce" = un indice en français (10 mots maximum) qui ne donne pas la réponse.`;
+  try{
+    const arr=await SAMPLE.json(prompt,{cache:false,modelTier:"quick"});
+    p.items=(Array.isArray(arr)?arr:[]).filter(x=>x&&x.fr&&x.de).slice(0,6).map(x=>({fr:String(x.fr),de:String(x.de),astuce:String(x.astuce||""),ans:"",res:null,busy:false,shown:false}));
+    if(!p.items.length)p.err="Aucune phrase reçue. Réessaie.";
+  }catch(e){p.err=errCopy(e&&e.code)}
+  p.busy=false;render();
+}
+async function phCheck(i){
+  const it=UI.ai.phr.items[i];const ans=(it.ans||"").trim();
+  if(!ans)return;
+  if(normS(ans)===normS(it.de)){it.res={ok:true,correction:it.de,explication:"Exactement la phrase attendue."};render();return}
+  it.busy=true;it.res=null;render();
+  const prompt=`Tu es professeur d'allemand (niveau A2) et tu corriges un francophone.
+Phrase à traduire : « ${it.fr} »
+Traduction de référence : « ${it.de} »
+Traduction de l'élève : « ${ans} »
+Plusieurs traductions correctes existent : juge si la traduction de l'élève est correcte en allemand ET fidèle au sens, même si elle diffère de la référence. Ignore les majuscules et la ponctuation mineure.
+Réponds UNIQUEMENT par un objet JSON : {"ok": true ou false, "correction": "phrase allemande corrigée (identique si correcte)", "explication": "en français, 1 à 2 phrases simples : ce qui est juste, ou l'erreur principale (cas, ordre des mots, conjugaison, article…)"}`;
+  try{
+    const r=await SAMPLE.json(prompt,{modelTier:"quick"});
+    it.res={ok:!!r.ok,correction:String(r.correction||it.de),explication:String(r.explication||"")};
+  }catch(e){it.res={ok:false,correction:it.de,explication:errCopy(e&&e.code)}}
+  it.busy=false;render();
+}
+/* --- Dialogue et questions --- */
+function aiChat(){
+  const a=UI.ai,ch=a.chat,dial=a.sub==="dial";
+  if(ch.mode!==a.sub){ch.mode=a.sub;ch.log=[];ch.err="";ch.started=false;ch.stream=""}
+  let head="";
+  if(dial&&!ch.started){
+    return `<p class="sub">Une conversation à ton niveau. Claude joue un rôle, te répond en allemand et corrige tes erreurs en français.</p>
+    <label class="f">Situation<select class="field" data-bind="sc">${Object.keys(SC).map(k=>`<option value="${k}"${k===ch.sc?" selected":""}>${esc(SC[k][0])}</option>`).join("")}</select></label>
+    <button class="btn wide" data-a="cstart">Commencer</button>${ch.err?`<div class="err">${esc(ch.err)}</div>`:""}`;
+  }
+  if(!dial&&!ch.log.length&&!ch.busy){
+    head=`<p class="sub">Pose n'importe quelle question de grammaire ou de vocabulaire. Réponse courte, en français, avec des exemples.</p><div class="chips">${QS.map((q,i)=>`<button class="chip" data-a="qs" data-i="${i}">${esc(q)}</button>`).join("")}</div>`;
+  }else if(dial){
+    head=`<div class="topline"><span class="tiny">${esc(SC[ch.sc][0])}</span><button class="link" data-a="crestart">Changer de situation</button></div>`;
+  }
+  return `${head}<div class="log" id="chatlog">${chatLogHTML()}</div>
+  <div class="composer"><textarea class="field" id="cin" rows="2" placeholder="${dial?"Écris en allemand (ou en français pour de l'aide)":"Ta question…"}" autocomplete="off" spellcheck="false"></textarea><span id="cbtn">${cBtn()}</span></div>`;
+}
+const cBtn=()=>UI.ai.chat.busy?`<button class="btn" data-a="cstop">Stop</button>`:`<button class="btn" data-a="csend">Envoyer</button>`;
+function bubble(m,dial){
+  if(m.role==="user")return `<div class="b me">${esc(m.content)}</div>`;
+  if(dial){const p=parseDF(m.content);return `<div class="b ai">${esc(p.de)}${spkBtn(p.de,"","sm")}${p.fr?`<span class="help">${esc(p.fr)}</span>`:""}</div>`}
+  return `<div class="b ai">${md(m.content)}</div>`;
+}
+function chatLogHTML(){
+  const ch=UI.ai.chat,dial=ch.mode==="dial";
+  let h=ch.log.map(m=>bubble(m,dial)).join("");
+  if(ch.busy)h+=`<div class="b ai" id="stream">${ch.stream?(dial?bubbleInner(ch.stream):md(ch.stream)):"Claude réfléchit…"}</div>`;
+  if(ch.err)h+=`<div class="err">${esc(ch.err)}</div>`;
+  return h;
+}
+function bubbleInner(t){const p=parseDF(t);return esc(p.de)+(p.fr?`<span class="help">${esc(p.fr)}</span>`:"")}
+function refreshChat(){const l=$("#chatlog");if(l){l.innerHTML=chatLogHTML();const b=$("#cbtn");if(b)b.innerHTML=cBtn();window.scrollTo(0,document.body.scrollHeight)}else if(UI.tab==="ia")render()}
+function paintStream(){const s=$("#stream"),ch=UI.ai.chat;if(s)s.innerHTML=ch.stream?(ch.mode==="dial"?bubbleInner(ch.stream):md(ch.stream)):"Claude réfléchit…"}
+function chatInput(){
+  const ch=UI.ai.chat,turns=ch.log.map(m=>({role:m.role,content:m.content}));
+  if(ch.mode==="dial")return [{role:"user",content:dialRules(ch.sc)}].concat(turns);
+  turns[0]={role:"user",content:PROF_RULES+"\n\nQuestion : "+turns[0].content};
+  return turns;
+}
+async function runChat(pend){
+  const ch=UI.ai.chat;ch.busy=true;ch.err="";ch.stream="";ch.ctl=new AbortController();refreshChat();
+  let got=false;
+  try{
+    const r=await SAMPLE(chatInput(),{cache:false,signal:ch.ctl.signal,modelTier:ch.mode==="prof"?"default":"quick",onText:o=>{ch.stream=o.text;paintStream()}});
+    ch.log.push({role:"assistant",content:r.text});got=true;
+  }catch(e){
+    if(e&&e.text&&e.code!=="refused"){ch.log.push({role:"assistant",content:e.text});got=true}
+    if(!e||e.code!=="cancelled")ch.err=errCopy(e&&e.code);
+  }
+  if(!got&&pend==="user"){const u=ch.log.pop();const el=$("#cin");if(el&&u)el.value=u.content}
+  if(!got&&pend==="start")ch.started=false;
+  ch.busy=false;ch.stream="";ch.ctl=null;
+  if(pend==="start"&&!got)render();else refreshChat();
+}
+function chatSend(text){
+  const ch=UI.ai.chat;if(ch.busy||!text.trim())return;
+  ch.log.push({role:"user",content:text.trim()});runChat("user");
+}
+/* --- Mots proposés par Claude + ajout manuel --- */
+function aiMots(){
+  const m=UI.ai.m;
+  const chips=["À la banque","Au bureau","Les vêtements","La famille","Le téléphone et internet","Le sport","À l'hôtel","La cuisine"].map(t=>`<button class="chip" data-a="mgen" data-t="${esc(t)}"${m.busy||!SAMPLE?" disabled":""}>${esc(t)}</button>`).join("");
+  const items=m.items.map((x,i)=>`<div class="wrow"><div class="w">${artChip(x.art)} <b>${esc(x.de)}</b>${x.pl?` <span class="tiny">(die ${esc(x.pl)})</span>`:""}<small>${esc(x.fr)} · ${esc(x.ex)}</small></div>${m.added[x.de]?`<span class="tiny">Ajouté</span>`:`<button class="btn small" data-a="madd" data-i="${i}">Ajouter</button>`}</div>`).join("");
+  const gen=SAMPLE?`<p class="sub">Choisis un thème ou écris le tien : Claude propose 10 mots utiles de niveau A2 que tu n'as pas encore, avec un exemple. Ils s'ajoutent au paquet « Mes mots ».</p>
+    <label class="f">Thème<input class="field" type="text" data-bind="mtheme" value="${esc(m.theme)}" placeholder="ex : chez le coiffeur, la voiture, le sport" autocomplete="off"></label>
+    <button class="btn wide" data-a="mgen" data-t=""${m.busy?" disabled":""}>${m.busy?"Claude cherche des mots…":"Proposer 10 mots"}</button>
+    <div class="chips">${chips}</div>${m.err?`<div class="err">${esc(m.err)}</div>`:""}
+    ${items?`<div class="rows" style="margin-top:14px">${items}</div><div class="btns"><button class="btn small" data-a="maddall">Tout ajouter</button></div>`:""}`:aiOff();
+  return `${gen}<h2 class="h2">Ajouter un mot à la main</h2>
+  <div class="item"><label class="f">Mot allemand (avec l'article pour un nom)<input class="field" id="mde" type="text" placeholder="das Auto" autocomplete="off" autocapitalize="off"></label>
+  <label class="f">Traduction<input class="field" id="mfr" type="text" placeholder="la voiture" autocomplete="off"></label>
+  <button class="btn small" data-a="mmanual">Ajouter à « Mes mots »</button>${m.msg?`<div class="tiny" style="margin-top:8px" aria-live="polite">${esc(m.msg)}</div>`:""}</div>`;
+}
+function cleanWord(x){
+  const t=v=>String(v==null?"":v).trim().slice(0,90);
+  const art=["der","die","das"].includes(String(x.art).toLowerCase())?String(x.art).toLowerCase():"";
+  return {de:t(x.de),art,pl:t(x.pl),fr:t(x.fr),ex:t(x.ex),exfr:t(x.exfr)};
+}
+async function mGen(theme){
+  const m=UI.ai.m;theme=(theme||m.theme||"").trim();if(!theme)theme="la vie de tous les jours";
+  m.theme=theme;m.busy=true;m.err="";m.items=[];m.msg="";render();
+  const known=allCards().map(c=>c.de).slice(0,300).join(", ");
+  const prompt=`Tu es professeur d'allemand pour un francophone de niveau A2. Propose 10 mots ou expressions allemands ESSENTIELS et très utiles pour le thème : « ${theme} ».
+Évite ces mots déjà connus : ${known}.
+Réponds UNIQUEMENT par un tableau JSON, sans texte autour, chaque élément de la forme :
+{"de":"Bahnhof","art":"der","pl":"Bahnhöfe","fr":"la gare","ex":"Wo ist der Bahnhof?","exfr":"Où est la gare ?"}
+Règles : "art" = der, die ou das pour les noms, "" pour les verbes, adjectifs et adverbes ; "pl" = pluriel sans article, ou "" s'il n'y en a pas ; pour un verbe, mets l'infinitif dans "de" ; "ex" = phrase simple de niveau A2 ; "fr" = traduction courte.`;
+  try{
+    const arr=await SAMPLE.json(prompt,{cache:false,modelTier:"quick"});
+    m.items=(Array.isArray(arr)?arr:[]).filter(x=>x&&x.de&&x.fr&&x.ex).slice(0,12).map(cleanWord);
+    if(!m.items.length)m.err="Aucun mot reçu. Réessaie.";
+  }catch(e){m.err=errCopy(e&&e.code)}
+  m.busy=false;render();
+}
+function addCustom(x){
+  const m=UI.ai.m;if(m.added[x.de])return;
+  CUSTOM.push({id:"c"+Date.now().toString(36)+Math.random().toString(36).slice(2,5),deck:"mes",de:x.de,art:x.art,pl:x.pl,fr:x.fr,ex:x.ex,exfr:x.exfr,note:""});
+  m.added[x.de]=1;
+}
+
+/* ================= MÉMO ================= */
+function tbl(head,rows){return `<div class="scroll"><table><thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>`<td>${i?c:"<b>"+c+"</b>"}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`}
+const sec=(t,b,open)=>`<details${open?" open":""}><summary>${t}</summary><div class="md">${b}</div></details>`;
+V.memo=function(){
+  const ar=(a,t)=>`<span class="art ${a}">${t}</span>`;
+  return `<p class="sub">Ce qu'il faut avoir sous les yeux quand on écrit ou parle.</p>`+
+  sec("Articles et cas",
+    tbl(["","masc.","fém.","neutre","pluriel"],[
+      ["Nominatif (qui ?)","der / ein","die / eine","das / ein","die"],
+      ["Accusatif (quoi ?)","<b>den</b> / <b>einen</b>","die / eine","das / ein","die"],
+      ["Datif (à qui ?)","dem / einem","der / einer","dem / einem","den (+ n)"]])+
+    `<p>Seul le masculin change à l'accusatif : ${ar("der","der")} → ${ar("der","den")}. Le neutre et le féminin ne bougent pas.</p><p>Au datif, retiens : <b>dem, der, dem, den</b>. Verbes qui veulent le datif : <i>helfen, gehören, gefallen, schmecken</i>.</p>`,true)+
+  sec("Deviner le genre",
+    `<ul><li>${ar("die","die")} : -ung, -heit, -keit, -schaft, -tion, -in (die Zeitung, die Freiheit, die Information, die Lehrerin)</li><li>${ar("das","das")} : -chen, -lein, -ment, -um, les verbes devenus noms (das Mädchen, das Dokument, das Essen)</li><li>${ar("der","der")} : jours, mois, saisons, points cardinaux, -er (personne), -ling (der Montag, der Sommer, der Lehrer)</li></ul><p>Ce sont des tendances, pas des lois. Apprends toujours le mot avec son article, et regarde les couleurs sur les cartes.</p>`)+
+  sec("Prépositions",
+    `<p><b>Toujours accusatif</b> : durch (à travers), für (pour), gegen (contre), ohne (sans), um (autour de, à telle heure). Astuce : <i>DOGFU</i> (Durch, Ohne, Gegen, Für, Um).</p>
+    <p><b>Toujours datif</b> : aus (de, hors de), bei (chez), mit (avec, en), nach (vers une ville, après), seit (depuis), von (de), zu (vers, chez).</p>
+    <p><b>Datif ou accusatif</b> : an, auf, hinter, in, neben, über, unter, vor, zwischen.<br>« Wo ? » (où ?, on reste sur place) → <b>datif</b>. « Wohin ? » (vers où ?, on bouge) → <b>accusatif</b>.</p>
+    ${tbl(["Contractions",""],[["zu + dem / der","zum / zur"],["in + dem / das","im / ins"],["an + dem / das","am / ans"],["auf + das","aufs"],["bei + dem, von + dem","beim, vom"]])}`)+
+  sec("sein, haben, werden",
+    tbl(["","sein","haben","werden"],[["ich","bin","habe","werde"],["du","bist","hast","wirst"],["er/sie/es","ist","hat","wird"],["wir","sind","haben","werden"],["ihr","seid","habt","werdet"],["sie/Sie","sind","haben","werden"]]))+
+  sec("Verbes modaux",
+    tbl(["","können","müssen","wollen","dürfen","sollen","möchte"],[["ich","kann","muss","will","darf","soll","möchte"],["du","kannst","musst","willst","darfst","sollst","möchtest"],["er/sie/es","kann","muss","will","darf","soll","möchte"],["wir","können","müssen","wollen","dürfen","sollen","möchten"],["ihr","könnt","müsst","wollt","dürft","sollt","möchtet"],["sie/Sie","können","müssen","wollen","dürfen","sollen","möchten"]])+
+    `<p>können = pouvoir, savoir · müssen = devoir · wollen = vouloir · dürfen = avoir le droit · sollen = devoir (conseil, consigne) · möchte = je voudrais.</p><p>L'infinitif part à la fin : <i>Ich möchte ein Eis essen.</i></p>`)+
+  sec("Verbes qui changent au présent",
+    tbl(["infinitif","du","er/sie/es"],[["sprechen","sprichst","spricht"],["essen","isst","isst"],["sehen","siehst","sieht"],["lesen","liest","liest"],["nehmen","nimmst","nimmt"],["geben","gibst","gibt"],["fahren","fährst","fährt"],["schlafen","schläfst","schläft"],["wissen","weißt","weiß"]])+
+    `<p>Le changement n'a lieu qu'à <b>du</b> et <b>er/sie/es</b>. Pour ich, wir, ihr, sie : comme d'habitude.</p>`)+
+  sec("Ordre des mots",
+    `<ul><li><b>Phrase simple</b> : le verbe est en 2e position. <i>Morgen gehe ich ins Kino.</i></li><li><b>Question oui/non</b> : verbe en 1er. <i>Gehst du ins Kino?</i></li><li><b>Mot interrogatif</b> : Wann, Wo, Was… puis le verbe. <i>Wo wohnst du?</i></li><li><b>Modal</b> : modal en 2e, infinitif à la fin. <i>Ich will morgen ins Kino gehen.</i></li><li><b>Verbe séparable</b> : préfixe à la fin. <i>Ich rufe dich an.</i></li><li><b>weil, dass, wenn, ob</b> : le verbe conjugué part à la fin. <i>…, weil ich müde bin.</i></li><li><b>deshalb, trotzdem</b> : ils comptent pour la place 1, le verbe suit. <i>Deshalb bleibe ich hier.</i></li><li><b>Ordre des compléments</b> : Temps, Cause, Manière, Lieu. <i>Ich fahre morgen mit dem Bus nach Hause.</i></li></ul>`)+
+  sec("Le passé : Perfekt",
+    `<p>Auxiliaire (<b>haben</b> ou <b>sein</b>) en 2e position, participe à la fin : <i>Ich habe Pizza gegessen. Wir sind nach Berlin gefahren.</i></p><p><b>sein</b> avec les verbes de déplacement ou de changement d'état : gehen, kommen, fahren, bleiben, aufstehen, sein. Tous les autres : <b>haben</b>.</p>`+
+    tbl(["infinitif","participe"],[["machen","gemacht"],["lernen","gelernt"],["arbeiten","gearbeitet"],["essen","gegessen"],["trinken","getrunken"],["sehen","gesehen"],["lesen","gelesen"],["schreiben","geschrieben"],["nehmen","genommen"],["sprechen","gesprochen"],["finden","gefunden"],["helfen","geholfen"],["gehen","(ist) gegangen"],["kommen","(ist) gekommen"],["fahren","(ist) gefahren"],["bleiben","(ist) geblieben"],["sein","(ist) gewesen"],["anrufen","angerufen"],["aufstehen","(ist) aufgestanden"],["verstehen","verstanden (pas de ge-)"]]))+
+  sec("Phrases de survie",
+    tbl(["Allemand","Français"],[["Wie bitte?","Pardon ? Comment ?"],["Können Sie das bitte wiederholen?","Pouvez-vous répéter ?"],["Langsamer, bitte.","Plus lentement, s'il vous plaît."],["Was bedeutet …?","Que signifie … ?"],["Wie sagt man … auf Deutsch?","Comment dit-on … en allemand ?"],["Ich verstehe nicht.","Je ne comprends pas."],["Ich spreche nur ein bisschen Deutsch.","Je parle seulement un peu allemand."],["Ich habe eine Frage.","J'ai une question."],["Kein Problem.","Pas de souci."]]));
+};
+
+/* ================= ACTIONS ================= */
+const A={};
+A.tab=b=>{UI.tab=b.dataset.t;store.set("tab",UI.tab);render();toTop()};
+A.say=b=>speak(b.dataset.t);
+A.dir=b=>{DIR=b.dataset.d;store.set("dir",DIR);render()};
+A.study=b=>startFc(b.dataset.id);
+A.list=b=>{UI.list=b.dataset.id;render();toTop()};
+A.listback=()=>{UI.list=null;render()};
+A.fcquit=()=>{UI.fc=null;render();toTop()};
+A.flip=()=>{
+  const s=UI.fc;if(!s)return;
+  s.flip=!s.flip;if(s.flip)s.rev=true;
+  const f=$(".fc");if(f)f.classList.toggle("flip",s.flip);
+  const c=$("#fcctl");if(c)c.innerHTML=fcCtl();
+};
+A.grade=b=>{
+  const s=UI.fc,g=+b.dataset.g,c=s.q[s.i],p=PR[c.id]||(PR[c.id]={box:0,due:0});
+  const DAY=864e5,INT=[0,1,3,7,16,35];
+  if(g===0){p.box=0;p.due=Date.now()+2*60e3}
+  else if(g===1){p.due=Date.now()+10*60e3}
+  else{p.box=Math.min((p.box||0)+1,5);p.due=Date.now()+INT[p.box]*DAY;if(!s.retry[c.id])s.known++}
+  store.set("prog",PR);
+  if(g<2){const n=(s.retry[c.id]||0)+1;s.retry[c.id]=n;if(n<=2){if(g===0)s.q.splice(Math.min(s.i+4,s.q.length),0,c);else s.q.push(c)}}
+  s.i++;s.flip=false;s.rev=false;render();toTop();
+};
+A.delc=b=>{CUSTOM=CUSTOM.filter(c=>c.id!==b.dataset.id);delete PR[b.dataset.id];store.set("custom",CUSTOM);store.set("prog",PR);render()};
+
+A.gstart=b=>gStart(b.dataset.id);
+A.gquit=()=>{UI.g=null;render();toTop()};
+A.gpick=b=>{
+  const s=UI.g,it=s.items[s.i];if(s.pick!==null)return;
+  s.pick=+b.dataset.i;const ok=it.opts[s.pick]===it.ans;
+  if(ok)s.score++;else s.miss.push(it);
+  if(it.kind!=="art"){GR[it.id]=ok?1:0;store.set("gram",GR)}
+  render();
+};
+A.gnext=()=>{const s=UI.g;s.i++;s.pick=null;render();toTop()};
+
+A.tpick=b=>{const t=UI.t,k=t.bank.findIndex(x=>x.id==b.dataset.id);if(k<0)return;t.ans.push(t.bank.splice(k,1)[0]);t.st="";render()};
+A.tback=b=>{const t=UI.t;if(t.st==="ok")return;const k=t.ans.findIndex(x=>x.id==b.dataset.id);if(k<0)return;t.bank.push(t.ans.splice(k,1)[0]);t.st="";render()};
+A.tclear=()=>{const t=UI.t;t.bank=t.bank.concat(t.ans);t.ans=[];t.st="";render()};
+A.tcheck=()=>{const t=UI.t,s=t.ans.map(a=>a.t).join(" ");if(s===t.it.de||t.it.alts.includes(s)){t.st="ok";TS[t.it.id]=1;store.set("trans",TS)}else t.st="bad";render()};
+A.tsol=()=>{UI.t.sol=true;render()};
+A.tnext=()=>{newT();render();toTop()};
+
+A.aisub=b=>{UI.ai.sub=b.dataset.s;render()};
+A.phgen=()=>{if(SAMPLE&&!UI.ai.phr.busy)phGen()};
+A.phcheck=b=>{if(SAMPLE)phCheck(+b.dataset.i)};
+A.phshow=b=>{const it=UI.ai.phr.items[+b.dataset.i];it.shown=true;it.res=null;render()};
+A.cstart=()=>{const ch=UI.ai.chat;ch.log=[];ch.started=true;runChat("start")};
+A.crestart=()=>{const ch=UI.ai.chat;if(ch.ctl)ch.ctl.abort();ch.log=[];ch.started=false;ch.busy=false;ch.err="";render()};
+A.csend=()=>{const el=$("#cin");if(!el)return;const v=el.value;if(!v.trim())return;el.value="";chatSend(v)};
+A.cstop=()=>{const ch=UI.ai.chat;if(ch.ctl)ch.ctl.abort()};
+A.qs=b=>chatSend(QS[+b.dataset.i]);
+A.mgen=b=>{if(SAMPLE&&!UI.ai.m.busy)mGen(b.dataset.t||UI.ai.m.theme)};
+A.madd=b=>{addCustom(UI.ai.m.items[+b.dataset.i]);store.set("custom",CUSTOM);render()};
+A.maddall=()=>{UI.ai.m.items.forEach(addCustom);store.set("custom",CUSTOM);render()};
+A.mmanual=()=>{
+  const m=UI.ai.m;let de=($("#mde").value||"").trim(),fr=($("#mfr").value||"").trim();
+  if(!de||!fr){m.msg="Remplis les deux champs.";render();return}
+  let art="";const r=de.match(/^(der|die|das)\s+(.+)$/i);if(r){art=r[1].toLowerCase();de=r[2]}
+  CUSTOM.push({id:"c"+Date.now().toString(36),deck:"mes",de,art,pl:"",fr,ex:"",exfr:"",note:""});
+  store.set("custom",CUSTOM);m.msg="Ajouté au paquet « Mes mots ».";render();
+};
+
+document.addEventListener("click",e=>{const t=e.target.closest("[data-a]");if(!t||t.disabled)return;const f=A[t.dataset.a];if(f)f(t,e)});
+document.addEventListener("keydown",e=>{
+  if((e.key===" "||e.key==="Enter")&&e.target.matches&&e.target.matches(".fc")){e.preventDefault();A.flip()}
+  else if(e.key==="Enter"&&!e.shiftKey&&e.target.id==="cin"){e.preventDefault();A.csend()}
+});
+function bindVal(e){
+  const el=e.target,b=el.dataset&&el.dataset.bind;if(!b)return;
+  const a=UI.ai;
+  if(b.indexOf("ph:")===0)a.phr.items[+b.slice(3)].ans=el.value;
+  else if(b==="phtheme")a.theme=el.value;
+  else if(b==="phfocus")a.focus=el.value;
+  else if(b==="sc")a.chat.sc=el.value;
+  else if(b==="mtheme")a.m.theme=el.value;
+}
+document.addEventListener("input",bindVal);
+document.addEventListener("change",bindVal);
+render();
+})();
+</script>
+</body>
+</html>
