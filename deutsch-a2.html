@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Deutsch A2 : cartes et mémo</title>
+<title>Deutsch A2 : cartes, mots et mémo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -104,6 +104,15 @@ h1{font-size:1.4rem;margin:0;font-weight:700;letter-spacing:.01em}
 .panel.center{text-align:center}
 .score{font-size:3rem;font-weight:700;line-height:1.1}
 
+.field{display:block;width:100%;font-size:1rem;padding:11px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);margin:4px 0 12px}
+.lab{display:block;font-size:.85rem;color:var(--ink-2);font-weight:600}
+.rows{background:var(--surface);border-radius:18px;overflow:hidden}
+.row2{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.row2:last-child{border-bottom:0}
+.row2 .w{flex:1;min-width:0}
+.row2 .w b{font-weight:600}
+.x{background:none;border:0;color:var(--ink-2);font-size:1.4rem;padding:0 6px}
+
 details{background:var(--surface);border-radius:14px;margin-bottom:8px}
 summary{list-style:none;padding:14px 16px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
 summary::-webkit-details-marker{display:none}
@@ -132,7 +141,7 @@ details[open] summary::after{content:"\2013"}
 (function(){
 "use strict";
 
-/* ================= MOTS ================= */
+/* ================= MOTS DE BASE ================= */
 /* [allemand, article, pluriel, français, exemple, traduction de l'exemple, note] */
 const RAW=[
 ["sich erinnern","","","se souvenir","Ich erinnere mich an dich.","Je me souviens de toi.","ich erinnere mich · + an + accusatif"],
@@ -277,7 +286,7 @@ const RAW=[
 ["Uni","die","Unis","la fac, l'université","Die Uni ist weit weg.","La fac est loin."],
 ["Bewerbungsrunde","die","Bewerbungsrunden","le tour de candidatures","Es gibt jedes Jahr eine Bewerbungsrunde.","Il y a un tour de candidatures chaque année.","jedes (et non jedeS)"],
 ["Mal","das","Male","la fois","Dieses Mal war es anders.","Cette fois, c'était différent.","dieses Mal = cette fois"],
-["Freundin","die","Freundinnen","l'amie, la petite amie","Das ist meine Freundin.","C'est mon amie.","der Freund = l'ami / le petit ami"]
+["Freundin","die","Freundinnen","l'amie, la petite amie","Das ist meine Freundin.","C'est mon amie.","der Freund = l'ami / le petit ami"],
 ["pro","","","par (pro Monat : par mois)","","","pro + accusatif : pro Tag, pro Person, pro Monat"],
 ["vier Mal","","","quatre fois","","","zwei Mal, drei Mal, vier Mal… : fois après un nombre"],
 ["Ich habe dieses Wochenende frei.","","","Je suis libre ce week-end.","","","diesES → dieses (das Wochenende)"],
@@ -328,7 +337,7 @@ const RAW=[
 ["Dativ : dem / der / dem / den","","","au datif : dem (masc., neutre), der (fém.), den (pluriel)","Ich gebe dem Mann das Buch.","Je donne le livre à l'homme.","der → dem, die → der, das → dem, die → den"]
 ];
 
-const WORDS=RAW.map((r,i)=>({id:"w"+i,de:r[0],art:r[1]||"",pl:r[2]||"",fr:r[3]||"",ex:r[4]||"",exfr:r[5]||"",note:r[6]||""}));
+const BASE=RAW.map((r,i)=>({id:"w"+i,de:r[0],art:r[1]||"",pl:r[2]||"",fr:r[3]||"",ex:r[4]||"",exfr:r[5]||"",note:r[6]||""}));
 
 /* ================= OUTILS ================= */
 const $=(s,r=document)=>r.querySelector(s);
@@ -345,12 +354,21 @@ const spkBtn=(t,label)=>CAN_SPEAK?`<button class="spk" data-a="say" data-t="${es
 const artChip=a=>a?`<span class="art ${a}">${a}</span>`:"";
 const toTop=()=>window.scrollTo(0,0);
 
+/* ================= LISTE DES MOTS (ajouts et retraits) ================= */
+/* Les mots de base peuvent être retirés (liste "hidden"), les mots ajoutés sont dans "added" */
+function loadWords(){
+  const hidden=new Set(store.get("hidden",[]));
+  const added=store.get("added",[]);
+  return BASE.concat(added).filter(w=>!hidden.has(w.id));
+}
+let WORDS=loadWords();
+
 /* ================= ÉTAT ET MÉMOIRE ================= */
 /* PR[id] = { last: 0 (à revoir) | 1 (presque) | 2 (je sais), box, due } */
 let PR=store.get("prog2",{});
 let DIR=store.get("dir","de");
-const UI={tab:store.get("tab","cartes"),fc:null};
-if(!["cartes","memo"].includes(UI.tab))UI.tab="cartes";
+const UI={tab:store.get("tab","cartes"),fc:null,filt:"",addmsg:""};
+if(!["cartes","mots","memo"].includes(UI.tab))UI.tab="cartes";
 
 function stats(){
   const t=Date.now();let due=0,nw=0,ok=0,ko=0,mid=0;
@@ -366,6 +384,7 @@ function stats(){
 /* ================= NAVIGATION ================= */
 const NAV=[
  ["cartes","Cartes",'<svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2.5"/><path d="M8 4h8"/></svg>'],
+ ["mots","Mots",'<svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>'],
  ["memo","Mémo",'<svg viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h11v15H7a2 2 0 00-2 2z"/><path d="M5 20a2 2 0 002 1h11"/></svg>']
 ];
 function renderNav(){$("#nav").innerHTML=NAV.map(n=>`<button class="tab${UI.tab===n[0]?" on":""}" data-a="tab" data-t="${n[0]}"${UI.tab===n[0]?' aria-current="page"':""}>${n[2]}<span>${n[1]}</span></button>`).join("")}
@@ -429,6 +448,33 @@ V.cartes=function(){
   <p class="foot tiny">${WORDS.length} mots · <button class="link" data-a="reset">Réinitialiser ma progression</button></p>`;
 };
 
+/* ================= MOTS ================= */
+function motRows(){
+  const f=(UI.filt||"").trim().toLowerCase();
+  const list=WORDS.filter(w=>!f||(w.de+" "+w.fr).toLowerCase().includes(f));
+  if(!list.length)return `<div class="row2"><span class="tiny">Aucun mot.</span></div>`;
+  return list.map(w=>`<div class="row2"><div class="w">${artChip(w.art)} <b>${esc(w.de)}</b>${w.pl?` <span class="tiny">(${w.art?"die "+esc(w.pl):esc(w.pl)})</span>`:""}<div class="tiny">${esc(w.fr)}</div></div><button class="x" data-a="hide" data-id="${w.id}" aria-label="Retirer ${esc(w.de)}">×</button></div>`).join("");
+}
+V.mots=function(){
+  const hidden=store.get("hidden",[]).length;
+  return `<p class="sub">Tous tes mots. Touche × pour en retirer un de tes cartes, ou ajoute-en un en bas.</p>
+  <input class="field" id="filt" type="search" placeholder="Chercher un mot" value="${esc(UI.filt)}" autocomplete="off" autocapitalize="off">
+  <div class="tiny" style="margin-bottom:8px">${WORDS.length} mots</div>
+  <div class="rows" id="motlist">${motRows()}</div>
+  ${hidden?`<div class="btns"><button class="btn ghost" data-a="restore">Restaurer les ${hidden} mot(s) retirés</button></div>`:""}
+  <h2 class="h2">Ajouter un mot</h2>
+  <div class="panel">
+    <label class="lab">Mot allemand (avec l'article pour un nom : der Hund)</label><input class="field" id="aDe" autocomplete="off" autocapitalize="off">
+    <label class="lab">Traduction</label><input class="field" id="aFr" autocomplete="off">
+    <label class="lab">Pluriel (facultatif)</label><input class="field" id="aPl" autocomplete="off">
+    <label class="lab">Exemple en allemand (facultatif)</label><input class="field" id="aEx" autocomplete="off">
+    <label class="lab">Traduction de l'exemple (facultatif)</label><input class="field" id="aExfr" autocomplete="off">
+    <label class="lab">Note (facultatif)</label><input class="field" id="aNote" autocomplete="off">
+    <button class="btn wide" data-a="addword">Ajouter le mot</button>
+    <div class="tiny" id="addmsg" style="margin-top:8px" aria-live="polite">${esc(UI.addmsg)}</div>
+  </div>`;
+};
+
 /* ================= MÉMO ================= */
 function tbl(head,rows){return `<div class="scroll"><table><thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>`<td>${i?c:"<b>"+c+"</b>"}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`}
 const sec=(t,b,open)=>`<details${open?" open":""}><summary>${t}</summary><div class="md">${b}</div></details>`;
@@ -467,7 +513,7 @@ V.memo=function(){
 
 /* ================= ACTIONS ================= */
 const A={};
-A.tab=b=>{UI.tab=b.dataset.t;store.set("tab",UI.tab);render();toTop()};
+A.tab=b=>{UI.tab=b.dataset.t;UI.addmsg="";store.set("tab",UI.tab);render();toTop()};
 A.say=b=>speak(b.dataset.t);
 A.dir=b=>{DIR=b.dataset.d;store.set("dir",DIR);render()};
 A.study=()=>startFc();
@@ -497,10 +543,47 @@ A.reset=()=>{
   if(!confirm("Effacer toute ta progression ?"))return;
   PR={};store.set("prog2",PR);render();
 };
+A.hide=b=>{
+  const id=b.dataset.id,h=store.get("hidden",[]);
+  if(!h.includes(id))h.push(id);
+  store.set("hidden",h);
+  WORDS=loadWords();render();
+};
+A.restore=()=>{
+  store.set("hidden",[]);WORDS=loadWords();render();
+};
+A.addword=()=>{
+  let de=($("#aDe").value||"").trim(),fr=($("#aFr").value||"").trim();
+  if(!de||!fr){$("#addmsg").textContent="Remplis au moins le mot allemand et sa traduction.";return}
+  let art="";
+  const m=de.match(/^(der|die|das)\s+(.+)$/i);
+  if(m){art=m[1].toLowerCase();de=m[2]}
+  const w={
+    id:"u"+Date.now().toString(36)+Math.random().toString(36).slice(2,5),
+    de,art,
+    pl:($("#aPl").value||"").trim(),
+    fr,
+    ex:($("#aEx").value||"").trim(),
+    exfr:($("#aExfr").value||"").trim(),
+    note:($("#aNote").value||"").trim()
+  };
+  const added=store.get("added",[]);
+  added.push(w);
+  store.set("added",added);
+  WORDS=loadWords();
+  UI.addmsg="« "+(art?art+" ":"")+de+" » ajouté.";
+  render();
+};
 
 document.addEventListener("click",e=>{const t=e.target.closest("[data-a]");if(!t||t.disabled)return;const f=A[t.dataset.a];if(f)f(t,e)});
 document.addEventListener("keydown",e=>{
   if((e.key===" "||e.key==="Enter")&&e.target.matches&&e.target.matches(".fc")){e.preventDefault();A.flip()}
+});
+document.addEventListener("input",e=>{
+  if(e.target&&e.target.id==="filt"){
+    UI.filt=e.target.value;
+    const l=$("#motlist");if(l)l.innerHTML=motRows();
+  }
 });
 render();
 })();
